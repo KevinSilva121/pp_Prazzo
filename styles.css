@@ -1,0 +1,391 @@
+/*
+ * Política de Privacidade — Prazzo
+ * Visual baseado no tema escuro do app (src/theme/colors.ts).
+ */
+
+:root {
+    --primary: #6c63ff;
+    --primary-dark: #5a52d5;
+    --primary-light: #8b85ff;
+    --gradient-start: #6c63ff;
+    --gradient-end: #4ecdc4;
+
+    --bg: #0f0f23;
+    --bg-secondary: #1a1a2e;
+    --surface: #1e1e3a;
+    --surface-light: #2a2a4a;
+
+    --text-primary: #ffffff;
+    --text-secondary: #b8b8d4;
+    --text-muted: #6b6b8d;
+
+    --success: #4ecdc4;
+    --error: #ff6b6b;
+    --warning: #ffe66d;
+
+    --border: #2a2a4a;
+    --border-light: #3a3a5a;
+
+    --radius: 16px;
+    --radius-sm: 10px;
+    --maxw: 780px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-secondary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+        Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--primary-light);
+    text-decoration: none;
+    word-break: break-word;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ── Hero ── */
+.hero {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    padding: 64px 24px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.18), transparent 55%);
+    pointer-events: none;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 15, 35, 0.35);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.hero h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.hero p {
+    margin: 12px 0 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 17px;
+}
+
+/* ── Container ── */
+.container {
+    max-width: var(--maxw);
+    margin: -40px auto 0;
+    padding: 0 20px 80px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Cartão de metadados ── */
+.meta-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 32px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.meta-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px 20px;
+    font-size: 15px;
+}
+
+.meta-grid dt {
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.meta-grid dd {
+    margin: 0;
+    color: var(--text-primary);
+}
+
+/* ── Sumário ── */
+.toc {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 40px;
+}
+
+.toc h2 {
+    margin: 0 0 14px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.toc ol {
+    margin: 0;
+    padding-left: 20px;
+    columns: 2;
+    column-gap: 28px;
+}
+
+.toc li {
+    margin-bottom: 8px;
+    break-inside: avoid;
+}
+
+.toc a {
+    color: var(--text-secondary);
+}
+
+.toc a:hover {
+    color: var(--primary-light);
+}
+
+/* ── Seções ── */
+section {
+    margin-bottom: 44px;
+    scroll-margin-top: 24px;
+}
+
+h2.section-title {
+    color: var(--text-primary);
+    font-size: 23px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    padding-top: 8px;
+    letter-spacing: -0.3px;
+}
+
+h2.section-title .num {
+    color: var(--primary-light);
+    margin-right: 10px;
+}
+
+h3 {
+    color: var(--text-primary);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 28px 0 8px;
+}
+
+p {
+    margin: 12px 0;
+}
+
+strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+    border: 0;
+    margin: 0 0 36px;
+}
+
+/* ── Tabelas ── */
+.table-wrap {
+    overflow-x: auto;
+    margin: 18px 0;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    min-width: 460px;
+}
+
+thead th {
+    background: var(--surface-light);
+    color: var(--text-primary);
+    text-align: left;
+    padding: 12px 16px;
+    font-weight: 600;
+}
+
+tbody td {
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* ── Callouts ── */
+.callout {
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-left: 4px solid var(--primary);
+    background: rgba(108, 99, 255, 0.08);
+}
+
+.callout.warn {
+    border-left-color: var(--warning);
+    background: rgba(255, 230, 109, 0.08);
+}
+
+.callout.info {
+    border-left-color: var(--success);
+    background: rgba(78, 205, 196, 0.08);
+}
+
+.callout p:first-child {
+    margin-top: 0;
+}
+
+.callout p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Lista "não coletamos" ── */
+.no-list {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0;
+    display: grid;
+    gap: 10px;
+}
+
+.no-list li {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px 14px 48px;
+    position: relative;
+}
+
+.no-list li::before {
+    content: '✕';
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(255, 107, 107, 0.15);
+    color: var(--error);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── Lista de direitos / obrigações ── */
+ul.clean,
+ol.clean {
+    margin: 14px 0;
+    padding-left: 22px;
+}
+
+ul.clean li,
+ol.clean li {
+    margin-bottom: 8px;
+}
+
+/* ── Rodapé ── */
+footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 20px 60px;
+    text-align: center;
+}
+
+.footer-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+}
+
+.footer-company {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.footer-muted {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: 18px;
+}
+
+.back-top {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--primary-light);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ── Responsivo ── */
+@media (max-width: 620px) {
+    .hero {
+        padding: 48px 20px 60px;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    .toc ol {
+        columns: 1;
+    }
+
+    .meta-grid {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .meta-grid dd {
+        margin-bottom: 10px;
+    }
+
+    h2.section-title {
+        font-size: 20px;
+    }
+}
