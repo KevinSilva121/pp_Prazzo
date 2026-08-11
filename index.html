@@ -24,7 +24,9 @@
                 <dd>Prazzo (com.kevinramon122.prazzo)</dd>
                 <dt>Controlador / desenvolvedor</dt>
                 <dd>InnovateApps Co.</dd>
-                <dt>Contato e encarregado (DPO)</dt>
+                <dt>Termos de Uso</dt>
+                    <dd><a href="termos.html">Termos de Uso</a></dd>
+                    <dt>Contato e encarregado (DPO)</dt>
                 <dd><a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a></dd>
             </dl>
         </div>
@@ -78,6 +80,8 @@
                 </table>
             </div>
             <p>Sua <strong>senha nunca é vista nem armazenada por nós</strong>. A autenticação é feita pelo Firebase Authentication (Google), que guarda apenas uma representação criptográfica dela.</p>
+            <p>Você também pode entrar com <strong>Google</strong> ou com <strong>Apple</strong>. Nesse caso recebemos apenas o e-mail e o nome que o provedor devolve, para criar sua conta — <strong>nunca a sua senha</strong> do Google ou do Apple ID, que não passa por nós.</p>
+            <p>Se você usar o <strong>"Ocultar meu e-mail"</strong> da Apple, recebemos um endereço de redirecionamento (<code>@privaterelay.appleid.com</code>) em vez do seu e-mail real. Tudo no aplicativo funciona igual, e o seu endereço verdadeiro continua desconhecido para nós.</p>
 
             <h3>2.2. Dados do seu negócio</h3>
             <p>Tudo o que você cadastra no aplicativo:</p>
@@ -99,12 +103,13 @@
             <p>Idioma, moeda, tema (claro/escuro), loja ativa e horários de notificação.</p>
 
             <h3>2.5. Assinatura</h3>
-            <p>Se você assinar o Prazzo Pro, recebemos do Google Play a confirmação de que sua assinatura está ativa, sua data de renovação e um identificador da compra.</p>
-            <p><strong>Não recebemos, não vemos e não armazenamos os dados do seu cartão.</strong> Todo o pagamento é processado pelo Google Play. Nós só perguntamos ao Google "esta assinatura está ativa?" e recebemos sim ou não.</p>
+            <p>Se você assinar o Prazzo Pro, recebemos da loja do seu aparelho — <strong>Google Play</strong> no Android, <strong>App Store</strong> no iPhone — a confirmação de que sua assinatura está ativa, sua data de renovação e um identificador da compra.</p>
+            <p><strong>Não recebemos, não vemos e não armazenamos os dados do seu cartão.</strong> Todo o pagamento é processado pela loja (Google Play ou App Store). Nós só perguntamos a ela "esta assinatura está ativa?" e recebemos sim ou não.</p>
 
             <h3>2.5.1. Publicidade</h3>
             <p>O <strong>plano gratuito exibe anúncios</strong> fornecidos pelo <strong>Google AdMob</strong>. O <strong>Prazzo Pro remove todos os anúncios</strong>.</p>
             <p>Para exibir anúncios, o AdMob pode usar o <strong>identificador de publicidade do seu aparelho (Advertising ID)</strong> e informações de uso do aplicativo para selecionar e medir os anúncios. Onde a lei exige (LGPD e regras da União Europeia), <strong>pedimos seu consentimento</strong> antes de exibir anúncios personalizados; você pode recusar e ainda assim ver anúncios não personalizados. O tratamento desses dados pelo Google segue as <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">políticas de publicidade do Google</a>.</p>
+            <p><strong>No iPhone</strong>, antes de qualquer anúncio, o sistema exibe o pedido de permissão de rastreamento (<em>App Tracking Transparency</em>). Recusar não bloqueia o aplicativo nem os anúncios: apenas os torna <strong>não personalizados</strong>. Você pode mudar a resposta depois em Ajustes → Privacidade e Segurança → Rastreamento.</p>
 
             <h3>2.6. O que NÃO coletamos</h3>
             <p>Para ser explícito, porque a ausência também informa. Fora dos anúncios descritos em 2.5.1, cada item abaixo foi conferido no código do aplicativo:</p>
@@ -116,6 +121,13 @@
                 <li>Não gravamos áudio. A permissão de microfone é <strong>explicitamente bloqueada</strong> na configuração do aplicativo, junto com a de sobrepor outras telas.</li>
                 <li>Não temos analytics de comportamento nem mapa de calor de toques.</li>
             </ul>
+
+            <h3>2.7. Bloqueio por biometria</h3>
+            <p>Você pode ativar o bloqueio do aplicativo por <strong>Face ID, Touch ID ou digital</strong>, em Configurações → Segurança. É opcional e vem desligado.</p>
+            <div class="callout">
+                <p><strong>O Prazzo não vê, não recebe e não armazena sua digital nem seu rosto.</strong> Quem confere é o próprio aparelho, e ele nos devolve apenas "sim" ou "não". Nenhum dado biométrico sai do seu celular, e nada disso é enviado para os nossos servidores.</p>
+            </div>
+            <p>A preferência de ligado/desligado fica gravada <strong>somente neste aparelho</strong> — ela não é sincronizada com a sua conta, porque a biometria é cadastrada por aparelho.</p>
         </section>
 
         <section id="s3">
@@ -131,7 +143,8 @@
                         <tr><td>Firebase Authentication</td><td>e-mail e credencial de acesso</td></tr>
                         <tr><td>Cloud Firestore</td><td>perfil, lojas, produtos, clientes, vendas, parcelas</td></tr>
                         <tr><td>Firebase Storage</td><td>fotos de produtos</td></tr>
-                        <tr><td>Google Play Billing</td><td>assinatura</td></tr>
+                        <tr><td>Google Play Billing <span class="muted">(Android)</span></td><td>assinatura</td></tr>
+                        <tr><td>In-App Purchase da Apple <span class="muted">(iPhone)</span></td><td>assinatura</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -160,7 +173,7 @@
             <div class="callout">
                 <p><strong>Elas nunca mostram o nome de nenhum cliente seu.</strong> Isso é deliberado: a notificação aparece na tela de bloqueio, e quem estiver por perto veria quem está devendo. Mostramos apenas o nome da loja e a quantidade.</p>
             </div>
-            <p>Você pode desligar as notificações a qualquer momento, no aplicativo ou nas configurações do Android.</p>
+            <p>Você pode desligar as notificações a qualquer momento, no aplicativo ou nas configurações do sistema (Android ou iPhone).</p>
         </section>
 
         <section id="s6">
@@ -267,6 +280,7 @@
             <div class="footer-company">InnovateApps Co.</div>
             <div><a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a></div>
             <p class="footer-muted">Prazzo — controle de vendas a prazo, fiado e carnê.<br />Última atualização: 17 de julho de 2026.</p>
+            <div><a href="termos.html">Termos de Uso</a></div>
             <a class="back-top" href="#top">↑ Voltar ao topo</a>
         </div>
     </footer>
