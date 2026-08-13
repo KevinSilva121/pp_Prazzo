@@ -4,27 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
-    <meta name="description" content="Política de Privacidade do aplicativo Prazzo — controle de vendas a prazo, fiado e carnê. Desenvolvido pela InnovateApps Co." />
-    <title>Política de Privacidade — Prazzo</title>
+    <meta name="description" content="Política de Privacidade do aplicativo Prazzo (português, inglês e espanhol) — controle de vendas a prazo, fiado e carnê. InnovateApps Co." />
+    <title>Política de Privacidade — Privacy Policy — Política de Privacidad · Prazzo</title>
+
+    <!--
+      No <head> e antes da folha de estilo, de proposito: marca o idioma ativo
+      ANTES da primeira pintura. Feito depois, a pagina apareceria em portugues
+      por um instante e trocaria na frente do leitor.
+    -->
+    <script>
+        (function () {
+            var el = document.documentElement;
+            el.className += ' js';
+            var escolhido = null;
+            try {
+                escolhido = localStorage.getItem('prazzo-lang');
+            } catch (e) {
+                /* navegador com armazenamento bloqueado: segue pelo idioma do sistema */
+            }
+            var lang = escolhido || (navigator.language || 'pt').slice(0, 2).toLowerCase();
+            // Idioma que nao falamos cai no ingles, nao no portugues: quem chega
+            // de fora tem mais chance de ler ingles.
+            if (['pt', 'en', 'es'].indexOf(lang) < 0) lang = 'en';
+            el.setAttribute('data-active-lang', lang);
+            el.setAttribute('lang', lang === 'pt' ? 'pt-BR' : lang);
+        })();
+    </script>
+
     <link rel="stylesheet" href="styles.css" />
-    <link rel="alternate" hreflang="pt-BR" href="index.html" />
-    <link rel="alternate" hreflang="en" href="index-en.html" />
-    <link rel="alternate" hreflang="es" href="index-es.html" />
-    <link rel="alternate" hreflang="x-default" href="index.html" />
 </head>
 <body>
     <header class="hero" id="top">
         <span class="hero-badge">Prazzo</span>
         <nav class="lang-switch" aria-label="Idioma / Language / Idioma">
-            <a href="index.html" hreflang="pt-BR" aria-current="page">Português</a>
-            <a href="index-en.html" hreflang="en">English</a>
-            <a href="index-es.html" hreflang="es">Español</a>
+            <button type="button" data-set-lang="pt" aria-pressed="false">Português</button>
+            <button type="button" data-set-lang="en" aria-pressed="false">English</button>
+            <button type="button" data-set-lang="es" aria-pressed="false">Español</button>
         </nav>
-        <h1>Política de Privacidade</h1>
-        <p>Como o Prazzo trata os seus dados e os dos seus clientes.</p>
+        <div data-lang="pt">
+            <h1>Política de Privacidade</h1>
+            <p>Como o Prazzo trata os seus dados e os dos seus clientes.</p>
+        </div>
+        <div data-lang="en">
+            <h1>Privacy Policy</h1>
+            <p>How Prazzo handles your data and your customers' data.</p>
+        </div>
+        <div data-lang="es">
+            <h1>Política de Privacidad</h1>
+            <p>Cómo Prazzo trata tus datos y los de tus clientes.</p>
+        </div>
     </header>
 
-    <main class="container">
+    <div data-lang="pt">
+        <main class="container">
         <div class="meta-card">
             <dl class="meta-grid">
                 <dt>Última atualização</dt>
@@ -43,23 +75,23 @@
         <nav class="toc" aria-label="Sumário">
             <h2>Sumário</h2>
             <ol>
-                <li><a href="#s1">Quem somos e o que é este documento</a></li>
-                <li><a href="#s2">Dados que coletamos de você, lojista</a></li>
-                <li><a href="#s3">Onde seus dados ficam</a></li>
-                <li><a href="#s4">Dados guardados no seu aparelho</a></li>
-                <li><a href="#s5">Notificações</a></li>
-                <li><a href="#s6">Os dados dos seus clientes</a></li>
-                <li><a href="#s7">Compartilhamento</a></li>
-                <li><a href="#s8">Retenção</a></li>
-                <li><a href="#s9">Seus direitos (LGPD)</a></li>
-                <li><a href="#s10">Segurança</a></li>
-                <li><a href="#s11">Crianças</a></li>
-                <li><a href="#s12">Mudanças</a></li>
-                <li><a href="#s13">Contato</a></li>
+                <li><a href="#pt-s1">Quem somos e o que é este documento</a></li>
+                <li><a href="#pt-s2">Dados que coletamos de você, lojista</a></li>
+                <li><a href="#pt-s3">Onde seus dados ficam</a></li>
+                <li><a href="#pt-s4">Dados guardados no seu aparelho</a></li>
+                <li><a href="#pt-s5">Notificações</a></li>
+                <li><a href="#pt-s6">Os dados dos seus clientes</a></li>
+                <li><a href="#pt-s7">Compartilhamento</a></li>
+                <li><a href="#pt-s8">Retenção</a></li>
+                <li><a href="#pt-s9">Seus direitos (LGPD)</a></li>
+                <li><a href="#pt-s10">Segurança</a></li>
+                <li><a href="#pt-s11">Crianças</a></li>
+                <li><a href="#pt-s12">Mudanças</a></li>
+                <li><a href="#pt-s13">Contato</a></li>
             </ol>
         </nav>
 
-        <section id="s1">
+        <section id="pt-s1">
             <h2 class="section-title"><span class="num">1.</span>Quem somos e o que é este documento</h2>
             <hr class="section-divider" />
             <p>O Prazzo é um aplicativo para lojistas controlarem vendas a prazo, fiado e carnê. Esta política explica quais dados o aplicativo coleta, por que, com quem compartilha e como você exerce seus direitos.</p>
@@ -71,7 +103,7 @@
             <p>A seção 6 trata especificamente dos seus clientes, e é a parte mais importante deste documento.</p>
         </section>
 
-        <section id="s2">
+        <section id="pt-s2">
             <h2 class="section-title"><span class="num">2.</span>Dados que coletamos de você, lojista</h2>
             <hr class="section-divider" />
 
@@ -139,7 +171,7 @@
             <p>A preferência de ligado/desligado fica gravada <strong>somente neste aparelho</strong> — ela não é sincronizada com a sua conta, porque a biometria é cadastrada por aparelho.</p>
         </section>
 
-        <section id="s3">
+        <section id="pt-s3">
             <h2 class="section-title"><span class="num">3.</span>Onde seus dados ficam</h2>
             <hr class="section-divider" />
             <p>O Prazzo usa a infraestrutura do <strong>Google Firebase</strong>:</p>
@@ -160,7 +192,7 @@
             <p><strong>Transferência internacional:</strong> os servidores do Google podem estar fora do Brasil. Ao usar o Prazzo você concorda com essa transferência, que ocorre sob as salvaguardas contratuais do Google (art. 33 da LGPD).</p>
         </section>
 
-        <section id="s4">
+        <section id="pt-s4">
             <h2 class="section-title"><span class="num">4.</span>Dados guardados no seu aparelho</h2>
             <hr class="section-divider" />
             <p>O Prazzo <strong>funciona sem internet</strong> por escolha de projeto. Para isso, ele guarda dados localmente:</p>
@@ -174,7 +206,7 @@
             </div>
         </section>
 
-        <section id="s5">
+        <section id="pt-s5">
             <h2 class="section-title"><span class="num">5.</span>Notificações</h2>
             <hr class="section-divider" />
             <p>O Prazzo pode enviar lembretes nos horários que <strong>você</strong> escolher, avisando quantas parcelas estão atrasadas e em qual loja.</p>
@@ -185,7 +217,7 @@
             <p>Você pode desligar as notificações a qualquer momento, no aplicativo ou nas configurações do sistema (Android ou iPhone).</p>
         </section>
 
-        <section id="s6">
+        <section id="pt-s6">
             <h2 class="section-title"><span class="num">6.</span>Os dados dos SEUS clientes — leia com atenção</h2>
             <hr class="section-divider" />
             <p>Esta é a parte que mais importa, e ela impõe obrigações <strong>a você</strong>.</p>
@@ -216,7 +248,7 @@
             <p>Quando você apaga um cliente, apagamos o registro dele. Se um cliente seu pedir a exclusão dos dados, <strong>o pedido é seu para atender</strong> — você é o controlador. Se precisar de ajuda técnica, escreva para <a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a>.</p>
         </section>
 
-        <section id="s7">
+        <section id="pt-s7">
             <h2 class="section-title"><span class="num">7.</span>Compartilhamento</h2>
             <hr class="section-divider" />
             <p>Não vendemos, não alugamos e não cedemos dados a ninguém.</p>
@@ -237,14 +269,14 @@
             <p>E nas hipóteses legais: ordem judicial ou requisição de autoridade competente.</p>
         </section>
 
-        <section id="s8">
+        <section id="pt-s8">
             <h2 class="section-title"><span class="num">8.</span>Retenção</h2>
             <hr class="section-divider" />
             <p>Mantemos seus dados <strong>enquanto sua conta existir</strong>. Você pode pedir a exclusão a qualquer momento pelo <a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a>, ou diretamente no aplicativo em Configurações → Conta; concluímos em até <strong>30 dias</strong>, salvo o que a lei nos obrigue a reter.</p>
             <p>Cancelar a assinatura <strong>não apaga nada</strong> — você volta ao plano gratuito e continua com acesso a todos os seus dados.</p>
         </section>
 
-        <section id="s9">
+        <section id="pt-s9">
             <h2 class="section-title"><span class="num">9.</span>Seus direitos (LGPD, art. 18)</h2>
             <hr class="section-divider" />
             <p>Você pode, a qualquer momento:</p>
@@ -259,26 +291,26 @@
             <p>Canal único: <a href="mailto:innovatesappsco@gmail.com"><strong>innovatesappsco@gmail.com</strong></a>. Respondemos em até 15 dias.</p>
         </section>
 
-        <section id="s10">
+        <section id="pt-s10">
             <h2 class="section-title"><span class="num">10.</span>Segurança</h2>
             <hr class="section-divider" />
             <p>Usamos a infraestrutura do Google Firebase, com criptografia em trânsito e em repouso. O acesso aos dados é restrito por regras de servidor que garantem que <strong>cada conta só alcança os próprios dados</strong>.</p>
             <p>Sendo honesto com você, como manda o art. 6º, VI: nenhum sistema é inviolável. Fazemos o que está ao nosso alcance e comunicaremos você e a ANPD se ocorrer incidente relevante.</p>
         </section>
 
-        <section id="s11">
+        <section id="pt-s11">
             <h2 class="section-title"><span class="num">11.</span>Crianças</h2>
             <hr class="section-divider" />
             <p>O Prazzo é uma ferramenta de trabalho, destinada a maiores de 18 anos. Não coletamos dados de crianças conscientemente. Se identificarmos isso, apagamos.</p>
         </section>
 
-        <section id="s12">
+        <section id="pt-s12">
             <h2 class="section-title"><span class="num">12.</span>Mudanças</h2>
             <hr class="section-divider" />
             <p>Se mudarmos esta política de forma relevante, avisaremos dentro do aplicativo antes de a mudança valer. A data no topo indica a versão vigente.</p>
         </section>
 
-        <section id="s13">
+        <section id="pt-s13">
             <h2 class="section-title"><span class="num">13.</span>Contato</h2>
             <hr class="section-divider" />
             <p><strong>InnovateApps Co.</strong><br /><a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a></p>
@@ -286,7 +318,7 @@
         </section>
     </main>
 
-    <footer>
+        <footer>
         <div class="footer-inner">
             <div class="footer-company">InnovateApps Co.</div>
             <div><a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a></div>
@@ -295,5 +327,588 @@
             <a class="back-top" href="#top">↑ Voltar ao topo</a>
         </div>
     </footer>
+    </div>
+
+    <div data-lang="en">
+        <main class="container">
+        <div class="meta-card">
+            <dl class="meta-grid">
+                <dt>Last updated</dt>
+                <dd>17 July 2026</dd>
+                <dt>App</dt>
+                <dd>Prazzo (com.kevinramon122.prazzo)</dd>
+                <dt>Controller / developer</dt>
+                <dd>InnovateApps Co.</dd>
+                <dt>Terms of Use</dt>
+                <dd><a href="termos.html">Terms of Use</a></dd>
+                <dt>Contact and Data Protection Officer</dt>
+                <dd><a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a></dd>
+            </dl>
+        </div>
+
+        <nav class="toc" aria-label="Contents">
+            <h2>Contents</h2>
+            <ol>
+                <li><a href="#en-s1">Who we are and what this document is</a></li>
+                <li><a href="#en-s2">Data we collect from you, the merchant</a></li>
+                <li><a href="#en-s3">Where your data lives</a></li>
+                <li><a href="#en-s4">Data stored on your device</a></li>
+                <li><a href="#en-s5">Notifications</a></li>
+                <li><a href="#en-s6">Your customers' data</a></li>
+                <li><a href="#en-s7">Sharing</a></li>
+                <li><a href="#en-s8">Retention</a></li>
+                <li><a href="#en-s9">Your rights</a></li>
+                <li><a href="#en-s10">Security</a></li>
+                <li><a href="#en-s11">Children</a></li>
+                <li><a href="#en-s12">Changes</a></li>
+                <li><a href="#en-s13">Contact</a></li>
+            </ol>
+        </nav>
+
+        <section id="en-s1">
+            <h2 class="section-title"><span class="num">1.</span>Who we are and what this document is</h2>
+            <hr class="section-divider" />
+            <p>Prazzo is an app for merchants to keep track of instalment sales, store credit and payment books. This policy explains what data the app collects, why, who it is shared with, and how you exercise your rights.</p>
+            <p>It is written in two directions, because Prazzo involves <strong>two kinds of person</strong>:</p>
+            <ul class="clean">
+                <li><strong>You, the merchant</strong>, who installs the app and creates an account.</li>
+                <li><strong>Your customers</strong>, whom you register and who <strong>never installed the app</strong>.</li>
+            </ul>
+            <p>Section 6 deals specifically with your customers, and it is the most important part of this document.</p>
+        </section>
+
+        <section id="en-s2">
+            <h2 class="section-title"><span class="num">2.</span>Data we collect from you, the merchant</h2>
+            <hr class="section-divider" />
+
+            <h3>2.1. Account and sign-up</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Data</th><th>Why</th><th>Legal basis</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Email</td><td>identify your account, sign in, password recovery</td><td>performance of a contract</td></tr>
+                        <tr><td>Password</td><td>authentication</td><td>performance of a contract</td></tr>
+                        <tr><td>Name / display name</td><td>personalise the app</td><td>performance of a contract</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Your <strong>password is never seen or stored by us</strong>. Authentication is handled by Firebase Authentication (Google), which keeps only a cryptographic representation of it.</p>
+            <p>You may also sign in with <strong>Google</strong> or with <strong>Apple</strong>. In that case we receive only the email address and the name the provider returns, in order to create your account — <strong>never your Google or Apple ID password</strong>, which never passes through us.</p>
+            <p>If you use Apple's <strong>"Hide My Email"</strong>, we receive a relay address (<code>@privaterelay.appleid.com</code>) instead of your real email. Everything in the app works the same, and your actual address remains unknown to us.</p>
+
+            <h3>2.2. Your business data</h3>
+            <p>Everything you enter into the app:</p>
+            <ul class="clean">
+                <li><strong>Stores</strong> — name and settings.</li>
+                <li><strong>Products / inventory</strong> — description, category, cost price, sale price, expenses and <strong>photos</strong>.</li>
+                <li><strong>Sales</strong> — amounts, down payment, instalment plan, payment method, notes, trade-ins.</li>
+                <li><strong>Instalments / payment books</strong> — due dates, amounts and payment records.</li>
+                <li><strong>Customers</strong> — see section 6.</li>
+            </ul>
+            <p>This data is yours. We store it so the app works and so you have it on any device where you sign in to your account.</p>
+
+            <h3>2.3. Camera and photo library</h3>
+            <p>So you can photograph a product, the app asks for <strong>camera</strong> or <strong>photo library</strong> permission — only when you tap to add a photo, never before.</p>
+            <p><strong>We use only the photo you pick at that moment.</strong> The app does not scan your library, does not read other photos and does not access anything in the background. The chosen photo is uploaded to Firebase Storage and attached to the product.</p>
+            <p>You can deny the permission: the app keeps working, just without a photo on the product.</p>
+
+            <h3>2.4. Preferences</h3>
+            <p>Language, currency, theme (light/dark), active store and notification times.</p>
+
+            <h3>2.5. Subscription</h3>
+            <p>If you subscribe to Prazzo Pro, we receive from your device's store — <strong>Google Play</strong> on Android, the <strong>App Store</strong> on iPhone — confirmation that your subscription is active, its renewal date and a purchase identifier.</p>
+            <p><strong>We do not receive, see or store your card details.</strong> All payment is processed by the store (Google Play or the App Store). We only ask it "is this subscription active?" and receive yes or no.</p>
+
+            <h3>2.5.1. Advertising</h3>
+            <p>The <strong>free plan shows ads</strong> served by <strong>Google AdMob</strong>. <strong>Prazzo Pro removes all ads.</strong></p>
+            <p>To serve ads, AdMob may use your device's <strong>advertising identifier</strong> and app usage information to select and measure those ads. Where the law requires it, <strong>we ask for your consent</strong> before showing personalised ads; you may refuse and still see non-personalised ads. Google's handling of this data follows the <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google advertising policies</a>.</p>
+            <p><strong>On iPhone</strong>, before any ad, the system shows the tracking permission request (<em>App Tracking Transparency</em>). Declining does not block the app or the ads: it only makes them <strong>non-personalised</strong>. You can change your answer later in Settings → Privacy &amp; Security → Tracking.</p>
+
+            <h3>2.6. What we do NOT collect</h3>
+            <p>Stated explicitly, because absence is information too. Apart from the advertising described in 2.5.1, every item below was checked against the app's source code:</p>
+            <ul class="no-list">
+                <li>We do not sell your data to third parties.</li>
+                <li>We do not collect your location — the app does not request that permission and contains no GPS code.</li>
+                <li>We do not access your contacts, your calendar or your messages.</li>
+                <li>We do not access your WhatsApp conversation — when you tap "collect", the app merely <strong>opens</strong> WhatsApp with a prepared message. We do not see what you send, or whether you sent it.</li>
+                <li>We do not record audio. The microphone permission is <strong>explicitly blocked</strong> in the app's configuration, along with drawing over other apps.</li>
+                <li>We have no behavioural analytics and no tap heatmaps.</li>
+            </ul>
+
+            <h3>2.7. Biometrics (Face ID, Touch ID, fingerprint)</h3>
+            <p>You may ask the app to confirm with <strong>Face ID, Touch ID or fingerprint</strong> before entering your account. It is optional, off by default, and lives in Settings → Security.</p>
+            <div class="callout">
+                <p><strong>Prazzo does not see, receive or store your fingerprint or your face.</strong> The device itself does the checking and returns only "yes" or "no". No biometric data leaves your phone, and none of it is sent to our servers.</p>
+            </div>
+            <p>The on/off preference is stored <strong>on this device only</strong> — it is not synced to your account, because biometrics are enrolled per device.</p>
+        </section>
+
+        <section id="en-s3">
+            <h2 class="section-title"><span class="num">3.</span>Where your data lives</h2>
+            <hr class="section-divider" />
+            <p>Prazzo runs on <strong>Google Firebase</strong> infrastructure:</p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Service</th><th>What it holds</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Firebase Authentication</td><td>email and sign-in credential</td></tr>
+                        <tr><td>Cloud Firestore</td><td>profile, stores, products, customers, sales, instalments</td></tr>
+                        <tr><td>Firebase Storage</td><td>product photos</td></tr>
+                        <tr><td>Google Play Billing <span class="muted">(Android)</span></td><td>subscription</td></tr>
+                        <tr><td>Apple In-App Purchase <span class="muted">(iPhone)</span></td><td>subscription</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>International transfer:</strong> Google's servers may be located outside Brazil, where our company is established. By using Prazzo you agree to that transfer, which takes place under Google's contractual safeguards.</p>
+        </section>
+
+        <section id="en-s4">
+            <h2 class="section-title"><span class="num">4.</span>Data stored on your device</h2>
+            <hr class="section-divider" />
+            <p>Prazzo <strong>works without an internet connection</strong> by design. To do that, it keeps data locally:</p>
+            <ul class="clean">
+                <li><strong>A copy of your data</strong> (Firestore offline), so you can open the app and work with no network.</li>
+                <li><strong>Cached photos</strong> (up to 200 MB), so the same image is not downloaded twice. Older photos are discarded automatically once that limit is reached.</li>
+                <li><strong>Preferences and notification times.</strong></li>
+            </ul>
+            <div class="callout info">
+                <p><strong>When you sign out</strong>, the app deletes cached photos immediately and marks the local copy of your data to be erased on the next launch. This exists so that, on a shared device, the next person cannot reach anything of yours.</p>
+            </div>
+        </section>
+
+        <section id="en-s5">
+            <h2 class="section-title"><span class="num">5.</span>Notifications</h2>
+            <hr class="section-divider" />
+            <p>Prazzo can send reminders at the times <strong>you</strong> choose, telling you how many instalments are overdue and in which store.</p>
+            <p>These notifications are <strong>local</strong>: they are generated by the device itself and never pass through any server of ours.</p>
+            <div class="callout">
+                <p><strong>They never show the name of any of your customers.</strong> That is deliberate: the notification appears on the lock screen, and anyone nearby would see who owes money. We show only the store name and a count.</p>
+            </div>
+            <p>You can turn notifications off at any time, in the app or in your system settings (Android or iPhone).</p>
+        </section>
+
+        <section id="en-s6">
+            <h2 class="section-title"><span class="num">6.</span>YOUR customers' data — please read carefully</h2>
+            <hr class="section-divider" />
+            <p>This is the part that matters most, and it places obligations <strong>on you</strong>.</p>
+
+            <h3>6.1. What is collected</h3>
+            <p>When you register a customer, Prazzo stores their <strong>name</strong>, <strong>phone number</strong>, any <strong>notes</strong> you write, and that person's entire <strong>history of purchases, debts, instalments and arrears</strong>.</p>
+
+            <h3>6.2. Who is responsible for what</h3>
+            <p>Under data protection law:</p>
+            <ul class="clean">
+                <li><strong>You, the merchant, are the CONTROLLER</strong> of that data. You decided to collect it and for what purpose. The relationship is between you and your customer.</li>
+                <li><strong>InnovateApps is the PROCESSOR.</strong> We merely store and process that data following your use of the app. We decide nothing about it, we do not use it for any purpose of our own, and we do not access it beyond what is strictly necessary to keep the service running.</li>
+            </ul>
+
+            <h3>6.3. Your obligations as controller</h3>
+            <p>By registering third parties in Prazzo, <strong>you declare that you</strong>:</p>
+            <ol class="clean">
+                <li>Have a legal basis to process that data — normally performance of the sales contract with your customer, or their consent.</li>
+                <li>Inform your customers that their data is recorded in a credit management system.</li>
+                <li>Handle your customers' requests about their own data (access, correction, deletion).</li>
+                <li>Do not use Prazzo for any unlawful purpose, nor to embarrass, expose or threaten anyone who owes you money.</li>
+            </ol>
+            <div class="callout warn">
+                <p><strong>A practical and serious warning:</strong> the fact that a person is behind on payments is sensitive in practice, even where it is not formally classified as "sensitive data". Publicly exposing a debtor — in a group chat, a noticeboard, a social network or a list — may amount to moral damages and to a consumer protection offence, <strong>regardless</strong> of this policy. Prazzo is a tool for internal control, not for exposure.</p>
+            </div>
+
+            <h3>6.4. Deletion</h3>
+            <p>When you delete a customer, we delete their record. If one of your customers asks for their data to be deleted, <strong>the request is yours to handle</strong> — you are the controller. If you need technical help, write to <a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a>.</p>
+        </section>
+
+        <section id="en-s7">
+            <h2 class="section-title"><span class="num">7.</span>Sharing</h2>
+            <hr class="section-divider" />
+            <p>We do not sell, rent or hand over data to anyone.</p>
+            <p>We share only with the suppliers the service needs in order to exist:</p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>With whom</th><th>What</th><th>Why</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Google (Firebase)</td><td>account and business data</td><td>hosting and authentication</td></tr>
+                        <tr><td>Google (Play Billing)</td><td>purchase identifier</td><td>process the subscription</td></tr>
+                        <tr><td>Apple (In-App Purchase)</td><td>purchase identifier</td><td>process the subscription</td></tr>
+                        <tr><td>Google (AdMob)</td><td>advertising identifier and ad usage data</td><td>serve ads on the free plan</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>And in the cases the law provides for: a court order or a request from a competent authority.</p>
+        </section>
+
+        <section id="en-s8">
+            <h2 class="section-title"><span class="num">8.</span>Retention</h2>
+            <hr class="section-divider" />
+            <p>We keep your data <strong>for as long as your account exists</strong>. You may request deletion at any time at <a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a>, or directly in the app under Settings → Account; we complete it within <strong>30 days</strong>, except for what the law obliges us to retain.</p>
+            <p>Cancelling the subscription <strong>deletes nothing</strong> — you return to the free plan and keep access to all of your data.</p>
+        </section>
+
+        <section id="en-s9">
+            <h2 class="section-title"><span class="num">9.</span>Your rights</h2>
+            <hr class="section-divider" />
+            <p>At any time you may:</p>
+            <ul class="clean">
+                <li>Confirm that we process your data and <strong>access it</strong>.</li>
+                <li><strong>Correct</strong> incomplete or wrong data — most of it directly in the app.</li>
+                <li>Request <strong>anonymisation, blocking or erasure</strong> of unnecessary data or data processed unlawfully.</li>
+                <li>Request <strong>portability</strong>.</li>
+                <li>Know who we share it with.</li>
+                <li><strong>Withdraw consent</strong> and ask for your account to be deleted.</li>
+            </ul>
+            <p>Single channel: <a href="mailto:innovatesappsco@gmail.com"><strong>innovatesappsco@gmail.com</strong></a>. We reply within 15 days.</p>
+            <p>These rights are those granted by Brazil's General Data Protection Law (LGPD), under which InnovateApps Co. operates. If you are in a jurisdiction with equivalent rights, write to the same address and we will handle your request under the applicable law.</p>
+        </section>
+
+        <section id="en-s10">
+            <h2 class="section-title"><span class="num">10.</span>Security</h2>
+            <hr class="section-divider" />
+            <p>We use Google Firebase infrastructure, with encryption in transit and at rest. Access to data is restricted by server-side rules that ensure <strong>each account can only reach its own data</strong>.</p>
+            <p>Being honest with you: no system is impenetrable. We do what is within our reach, and we will notify you and the relevant authority if a significant incident occurs.</p>
+        </section>
+
+        <section id="en-s11">
+            <h2 class="section-title"><span class="num">11.</span>Children</h2>
+            <hr class="section-divider" />
+            <p>Prazzo is a work tool, intended for people over 18. We do not knowingly collect children's data. If we identify any, we delete it.</p>
+        </section>
+
+        <section id="en-s12">
+            <h2 class="section-title"><span class="num">12.</span>Changes</h2>
+            <hr class="section-divider" />
+            <p>If we change this policy in a material way, we will tell you inside the app before the change takes effect. The date at the top indicates the version in force.</p>
+        </section>
+
+        <section id="en-s13">
+            <h2 class="section-title"><span class="num">13.</span>Contact</h2>
+            <hr class="section-divider" />
+            <p><strong>InnovateApps Co.</strong><br /><a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a></p>
+            <p>If we do not resolve your request, you may contact Brazil's data protection authority, the <strong>ANPD</strong> — <a href="https://www.gov.br/anpd" target="_blank" rel="noopener">gov.br/anpd</a> — or the supervisory authority in your own country.</p>
+        </section>
+    </main>
+
+        <footer>
+        <div class="footer-inner">
+            <div class="footer-company">InnovateApps Co.</div>
+            <div><a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a></div>
+            <p class="footer-muted">Prazzo — instalment sales, store credit and payment book management.<br />Last updated: 17 July 2026.</p>
+            <div><a href="termos.html">Terms of Use</a></div>
+            <a class="back-top" href="#top">↑ Back to top</a>
+        </div>
+    </footer>
+    </div>
+
+    <div data-lang="es">
+        <main class="container">
+        <div class="meta-card">
+            <dl class="meta-grid">
+                <dt>Última actualización</dt>
+                <dd>17 de julio de 2026</dd>
+                <dt>Aplicación</dt>
+                <dd>Prazzo (com.kevinramon122.prazzo)</dd>
+                <dt>Responsable / desarrollador</dt>
+                <dd>InnovateApps Co.</dd>
+                <dt>Términos de Uso</dt>
+                <dd><a href="termos.html">Términos de Uso</a></dd>
+                <dt>Contacto y delegado de protección de datos</dt>
+                <dd><a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a></dd>
+            </dl>
+        </div>
+
+        <nav class="toc" aria-label="Índice">
+            <h2>Índice</h2>
+            <ol>
+                <li><a href="#es-s1">Quiénes somos y qué es este documento</a></li>
+                <li><a href="#es-s2">Datos que recopilamos de ti, comerciante</a></li>
+                <li><a href="#es-s3">Dónde están tus datos</a></li>
+                <li><a href="#es-s4">Datos guardados en tu dispositivo</a></li>
+                <li><a href="#es-s5">Notificaciones</a></li>
+                <li><a href="#es-s6">Los datos de tus clientes</a></li>
+                <li><a href="#es-s7">Compartición</a></li>
+                <li><a href="#es-s8">Conservación</a></li>
+                <li><a href="#es-s9">Tus derechos</a></li>
+                <li><a href="#es-s10">Seguridad</a></li>
+                <li><a href="#es-s11">Menores</a></li>
+                <li><a href="#es-s12">Cambios</a></li>
+                <li><a href="#es-s13">Contacto</a></li>
+            </ol>
+        </nav>
+
+        <section id="es-s1">
+            <h2 class="section-title"><span class="num">1.</span>Quiénes somos y qué es este documento</h2>
+            <hr class="section-divider" />
+            <p>Prazzo es una aplicación para que los comerciantes controlen ventas en cuotas, fiado y libretas de pago. Esta política explica qué datos recopila la aplicación, por qué, con quién los comparte y cómo ejerces tus derechos.</p>
+            <p>Está escrita en dos direcciones, porque en Prazzo intervienen <strong>dos tipos de persona</strong>:</p>
+            <ul class="clean">
+                <li><strong>Tú, comerciante</strong>, que instalas la aplicación y creas una cuenta.</li>
+                <li><strong>Tus clientes</strong>, a quienes registras y que <strong>nunca instalaron la aplicación</strong>.</li>
+            </ul>
+            <p>La sección 6 trata específicamente de tus clientes, y es la parte más importante de este documento.</p>
+        </section>
+
+        <section id="es-s2">
+            <h2 class="section-title"><span class="num">2.</span>Datos que recopilamos de ti, comerciante</h2>
+            <hr class="section-divider" />
+
+            <h3>2.1. Registro y cuenta</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Dato</th><th>Para qué</th><th>Base legal</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Correo electrónico</td><td>identificar tu cuenta, inicio de sesión, recuperación de contraseña</td><td>ejecución de contrato</td></tr>
+                        <tr><td>Contraseña</td><td>autenticación</td><td>ejecución de contrato</td></tr>
+                        <tr><td>Nombre / nombre visible</td><td>personalizar la aplicación</td><td>ejecución de contrato</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Tu <strong>contraseña nunca es vista ni almacenada por nosotros</strong>. La autenticación la realiza Firebase Authentication (Google), que guarda solo una representación criptográfica de ella.</p>
+            <p>También puedes entrar con <strong>Google</strong> o con <strong>Apple</strong>. En ese caso recibimos únicamente el correo electrónico y el nombre que devuelve el proveedor, para crear tu cuenta — <strong>nunca tu contraseña</strong> de Google o del Apple ID, que no pasa por nosotros.</p>
+            <p>Si usas <strong>"Ocultar mi correo"</strong> de Apple, recibimos una dirección de redirección (<code>@privaterelay.appleid.com</code>) en lugar de tu correo real. Todo funciona igual en la aplicación, y tu dirección verdadera sigue siendo desconocida para nosotros.</p>
+
+            <h3>2.2. Datos de tu negocio</h3>
+            <p>Todo lo que registras en la aplicación:</p>
+            <ul class="clean">
+                <li><strong>Tiendas</strong> — nombre y configuración.</li>
+                <li><strong>Productos / inventario</strong> — descripción, categoría, precio de compra, precio de venta, gastos y <strong>fotos</strong>.</li>
+                <li><strong>Ventas</strong> — importes, entrada, plan de cuotas, forma de pago, observaciones, permutas.</li>
+                <li><strong>Cuotas / libretas</strong> — vencimientos, importes y registros de pago.</li>
+                <li><strong>Clientes</strong> — ver sección 6.</li>
+            </ul>
+            <p>Estos datos son tuyos. Los almacenamos para que la aplicación funcione y para que los tengas en cualquier dispositivo donde inicies sesión con tu cuenta.</p>
+
+            <h3>2.3. Cámara y galería de fotos</h3>
+            <p>Para que fotografíes un producto, la aplicación pide permiso de <strong>cámara</strong> o de <strong>galería</strong> — solo cuando tocas en añadir foto, nunca antes.</p>
+            <p><strong>Usamos únicamente la foto que elijas en ese momento.</strong> La aplicación no recorre tu galería, no lee otras fotos y no accede a nada en segundo plano. La foto elegida se envía a Firebase Storage y queda vinculada al producto.</p>
+            <p>Puedes denegar el permiso: la aplicación sigue funcionando, solo que sin foto en el producto.</p>
+
+            <h3>2.4. Preferencias</h3>
+            <p>Idioma, moneda, tema (claro/oscuro), tienda activa y horarios de notificación.</p>
+
+            <h3>2.5. Suscripción</h3>
+            <p>Si te suscribes a Prazzo Pro, recibimos de la tienda de tu dispositivo — <strong>Google Play</strong> en Android, <strong>App Store</strong> en iPhone — la confirmación de que tu suscripción está activa, su fecha de renovación y un identificador de la compra.</p>
+            <p><strong>No recibimos, no vemos y no almacenamos los datos de tu tarjeta.</strong> Todo el pago lo procesa la tienda (Google Play o App Store). Nosotros solo le preguntamos "¿esta suscripción está activa?" y recibimos sí o no.</p>
+
+            <h3>2.5.1. Publicidad</h3>
+            <p>El <strong>plan gratuito muestra anuncios</strong> proporcionados por <strong>Google AdMob</strong>. <strong>Prazzo Pro elimina todos los anuncios.</strong></p>
+            <p>Para mostrar anuncios, AdMob puede usar el <strong>identificador de publicidad de tu dispositivo</strong> e información de uso de la aplicación para seleccionar y medir esos anuncios. Donde la ley lo exige, <strong>pedimos tu consentimiento</strong> antes de mostrar anuncios personalizados; puedes negarte y aun así ver anuncios no personalizados. El tratamiento de esos datos por parte de Google sigue las <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">políticas de publicidad de Google</a>.</p>
+            <p><strong>En iPhone</strong>, antes de cualquier anuncio, el sistema muestra la solicitud de permiso de seguimiento (<em>App Tracking Transparency</em>). Rechazar no bloquea la aplicación ni los anuncios: solo los vuelve <strong>no personalizados</strong>. Puedes cambiar tu respuesta después en Ajustes → Privacidad y Seguridad → Seguimiento.</p>
+
+            <h3>2.6. Lo que NO recopilamos</h3>
+            <p>Lo decimos de forma explícita, porque la ausencia también informa. Fuera de la publicidad descrita en 2.5.1, cada punto siguiente fue verificado en el código de la aplicación:</p>
+            <ul class="no-list">
+                <li>No vendemos tus datos a terceros.</li>
+                <li>No recopilamos tu ubicación — la aplicación no pide ese permiso y no tiene código de GPS.</li>
+                <li>No accedemos a tus contactos, tu agenda ni tus mensajes.</li>
+                <li>No accedemos a tu conversación de WhatsApp — cuando tocas en "cobrar", la aplicación solo <strong>abre</strong> WhatsApp con un texto preparado. No vemos lo que envías ni si lo enviaste.</li>
+                <li>No grabamos audio. El permiso de micrófono está <strong>explícitamente bloqueado</strong> en la configuración de la aplicación, junto con el de superponerse a otras pantallas.</li>
+                <li>No tenemos analítica de comportamiento ni mapas de calor de toques.</li>
+            </ul>
+
+            <h3>2.7. Biometría (Face ID, Touch ID, huella)</h3>
+            <p>Puedes pedir que la aplicación confirme con <strong>Face ID, Touch ID o huella</strong> antes de entrar en tu cuenta. Es opcional, viene desactivado, y está en Configuración → Seguridad.</p>
+            <div class="callout">
+                <p><strong>Prazzo no ve, no recibe y no almacena tu huella ni tu rostro.</strong> Quien lo comprueba es el propio dispositivo, y nos devuelve solo "sí" o "no". Ningún dato biométrico sale de tu teléfono, y nada de eso se envía a nuestros servidores.</p>
+            </div>
+            <p>La preferencia de activado/desactivado se guarda <strong>solo en este dispositivo</strong> — no se sincroniza con tu cuenta, porque la biometría se registra por dispositivo.</p>
+        </section>
+
+        <section id="es-s3">
+            <h2 class="section-title"><span class="num">3.</span>Dónde están tus datos</h2>
+            <hr class="section-divider" />
+            <p>Prazzo usa la infraestructura de <strong>Google Firebase</strong>:</p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Servicio</th><th>Qué guarda</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Firebase Authentication</td><td>correo y credencial de acceso</td></tr>
+                        <tr><td>Cloud Firestore</td><td>perfil, tiendas, productos, clientes, ventas, cuotas</td></tr>
+                        <tr><td>Firebase Storage</td><td>fotos de productos</td></tr>
+                        <tr><td>Google Play Billing <span class="muted">(Android)</span></td><td>suscripción</td></tr>
+                        <tr><td>In-App Purchase de Apple <span class="muted">(iPhone)</span></td><td>suscripción</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>Transferencia internacional:</strong> los servidores de Google pueden estar fuera de Brasil, donde está establecida nuestra empresa. Al usar Prazzo aceptas esa transferencia, que ocurre bajo las salvaguardas contractuales de Google.</p>
+        </section>
+
+        <section id="es-s4">
+            <h2 class="section-title"><span class="num">4.</span>Datos guardados en tu dispositivo</h2>
+            <hr class="section-divider" />
+            <p>Prazzo <strong>funciona sin internet</strong> por decisión de diseño. Para eso, guarda datos localmente:</p>
+            <ul class="clean">
+                <li><strong>Copia de tus datos</strong> (Firestore sin conexión), para que abras la aplicación y trabajes sin red.</li>
+                <li><strong>Fotos en caché</strong> (hasta 200 MB), para no volver a descargar la misma imagen. Las fotos antiguas se descartan automáticamente al alcanzar ese límite.</li>
+                <li><strong>Preferencias y horarios de notificación.</strong></li>
+            </ul>
+            <div class="callout info">
+                <p><strong>Al cerrar sesión</strong>, la aplicación borra las fotos en caché de inmediato y marca la copia local de los datos para ser borrada en la próxima apertura. Esto existe para que, en un dispositivo compartido, la siguiente persona no alcance nada tuyo.</p>
+            </div>
+        </section>
+
+        <section id="es-s5">
+            <h2 class="section-title"><span class="num">5.</span>Notificaciones</h2>
+            <hr class="section-divider" />
+            <p>Prazzo puede enviar recordatorios en los horarios que <strong>tú</strong> elijas, avisando cuántas cuotas están atrasadas y en qué tienda.</p>
+            <p>Esas notificaciones son <strong>locales</strong>: las genera el propio dispositivo y no pasan por ningún servidor nuestro.</p>
+            <div class="callout">
+                <p><strong>Nunca muestran el nombre de ningún cliente tuyo.</strong> Es deliberado: la notificación aparece en la pantalla bloqueada, y quien esté cerca vería quién está debiendo. Mostramos solo el nombre de la tienda y la cantidad.</p>
+            </div>
+            <p>Puedes desactivar las notificaciones en cualquier momento, en la aplicación o en la configuración del sistema (Android o iPhone).</p>
+        </section>
+
+        <section id="es-s6">
+            <h2 class="section-title"><span class="num">6.</span>Los datos de TUS clientes — léelo con atención</h2>
+            <hr class="section-divider" />
+            <p>Esta es la parte que más importa, y impone obligaciones <strong>a ti</strong>.</p>
+
+            <h3>6.1. Qué se recopila</h3>
+            <p>Cuando registras un cliente, Prazzo almacena su <strong>nombre</strong>, su <strong>teléfono</strong>, las <strong>observaciones</strong> que escribas y todo el <strong>historial de compras, deudas, cuotas y atrasos</strong> de esa persona.</p>
+
+            <h3>6.2. Quién responde por qué</h3>
+            <p>Ante la normativa de protección de datos:</p>
+            <ul class="clean">
+                <li><strong>Tú, comerciante, eres el RESPONSABLE</strong> de esos datos. Fuiste tú quien decidió recopilarlos y para qué. La relación es entre tú y tu cliente.</li>
+                <li><strong>InnovateApps es el ENCARGADO.</strong> Nosotros solo almacenamos y procesamos esos datos siguiendo tu uso de la aplicación. No decidimos nada sobre ellos, no los usamos para ninguna finalidad propia y no accedemos a ellos, salvo lo estrictamente necesario para mantener el servicio en funcionamiento.</li>
+            </ul>
+
+            <h3>6.3. Tus obligaciones como responsable</h3>
+            <p>Al registrar a terceros en Prazzo, <strong>declaras que</strong>:</p>
+            <ol class="clean">
+                <li>Tienes base legal para tratar esos datos — normalmente la ejecución del contrato de compraventa con tu cliente, o su consentimiento.</li>
+                <li>Informas a tus clientes de que sus datos están registrados en un sistema de control de crédito.</li>
+                <li>Atiendes las solicitudes de tus clientes sobre sus propios datos (acceso, corrección, eliminación).</li>
+                <li>No usas Prazzo para ninguna finalidad ilícita, ni para avergonzar, exponer o amenazar a quien te debe.</li>
+            </ol>
+            <div class="callout warn">
+                <p><strong>Una advertencia práctica y seria:</strong> la información de que una persona está en mora es sensible en la práctica, aunque no sea "dato sensible" en sentido literal. Exponer públicamente a un deudor — en un grupo, un mural, una red social o una lista — puede configurar daño moral e infracción a la normativa de defensa del consumidor, <strong>con independencia</strong> de esta política. Prazzo es una herramienta de control interno, no de exposición.</p>
+            </div>
+
+            <h3>6.4. Eliminación</h3>
+            <p>Cuando borras un cliente, borramos su registro. Si un cliente tuyo pide la eliminación de sus datos, <strong>la solicitud es tuya para atender</strong> — tú eres el responsable. Si necesitas ayuda técnica, escribe a <a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a>.</p>
+        </section>
+
+        <section id="es-s7">
+            <h2 class="section-title"><span class="num">7.</span>Compartición</h2>
+            <hr class="section-divider" />
+            <p>No vendemos, no alquilamos y no cedemos datos a nadie.</p>
+            <p>Compartimos únicamente con los proveedores necesarios para que el servicio exista:</p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Con quién</th><th>Qué</th><th>Por qué</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Google (Firebase)</td><td>datos de cuenta y del negocio</td><td>alojamiento y autenticación</td></tr>
+                        <tr><td>Google (Play Billing)</td><td>identificador de la compra</td><td>procesar la suscripción</td></tr>
+                        <tr><td>Apple (In-App Purchase)</td><td>identificador de la compra</td><td>procesar la suscripción</td></tr>
+                        <tr><td>Google (AdMob)</td><td>identificador de publicidad y datos de uso de anuncios</td><td>mostrar anuncios en el plan gratuito</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Y en los supuestos legales: orden judicial o requerimiento de autoridad competente.</p>
+        </section>
+
+        <section id="es-s8">
+            <h2 class="section-title"><span class="num">8.</span>Conservación</h2>
+            <hr class="section-divider" />
+            <p>Mantenemos tus datos <strong>mientras exista tu cuenta</strong>. Puedes pedir la eliminación en cualquier momento en <a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a>, o directamente en la aplicación en Configuración → Cuenta; la concluimos en un plazo de <strong>30 días</strong>, salvo lo que la ley nos obligue a conservar.</p>
+            <p>Cancelar la suscripción <strong>no borra nada</strong> — vuelves al plan gratuito y conservas el acceso a todos tus datos.</p>
+        </section>
+
+        <section id="es-s9">
+            <h2 class="section-title"><span class="num">9.</span>Tus derechos</h2>
+            <hr class="section-divider" />
+            <p>En cualquier momento puedes:</p>
+            <ul class="clean">
+                <li>Confirmar que tratamos tus datos y <strong>acceder a ellos</strong>.</li>
+                <li><strong>Corregir</strong> datos incompletos o erróneos — la mayor parte directamente en la aplicación.</li>
+                <li>Pedir la <strong>anonimización, el bloqueo o la eliminación</strong> de datos innecesarios o tratados de forma no conforme.</li>
+                <li>Pedir la <strong>portabilidad</strong>.</li>
+                <li>Saber con quién los compartimos.</li>
+                <li><strong>Revocar el consentimiento</strong> y pedir la eliminación de la cuenta.</li>
+            </ul>
+            <p>Canal único: <a href="mailto:innovatesappsco@gmail.com"><strong>innovatesappsco@gmail.com</strong></a>. Respondemos en un plazo de 15 días.</p>
+            <p>Estos derechos son los que otorga la Ley General de Protección de Datos de Brasil (LGPD), bajo la cual opera InnovateApps Co. Si te encuentras en una jurisdicción con derechos equivalentes, escribe a la misma dirección y atenderemos tu solicitud conforme a la ley aplicable.</p>
+        </section>
+
+        <section id="es-s10">
+            <h2 class="section-title"><span class="num">10.</span>Seguridad</h2>
+            <hr class="section-divider" />
+            <p>Usamos la infraestructura de Google Firebase, con cifrado en tránsito y en reposo. El acceso a los datos está restringido por reglas de servidor que garantizan que <strong>cada cuenta solo alcanza sus propios datos</strong>.</p>
+            <p>Siendo honestos contigo: ningún sistema es inviolable. Hacemos lo que está a nuestro alcance y te comunicaremos a ti y a la autoridad competente si ocurre un incidente relevante.</p>
+        </section>
+
+        <section id="es-s11">
+            <h2 class="section-title"><span class="num">11.</span>Menores</h2>
+            <hr class="section-divider" />
+            <p>Prazzo es una herramienta de trabajo, destinada a mayores de 18 años. No recopilamos datos de menores de forma consciente. Si lo detectamos, los borramos.</p>
+        </section>
+
+        <section id="es-s12">
+            <h2 class="section-title"><span class="num">12.</span>Cambios</h2>
+            <hr class="section-divider" />
+            <p>Si cambiamos esta política de forma relevante, te avisaremos dentro de la aplicación antes de que el cambio entre en vigor. La fecha en la parte superior indica la versión vigente.</p>
+        </section>
+
+        <section id="es-s13">
+            <h2 class="section-title"><span class="num">13.</span>Contacto</h2>
+            <hr class="section-divider" />
+            <p><strong>InnovateApps Co.</strong><br /><a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a></p>
+            <p>Si no lo resolvemos, puedes acudir a la autoridad brasileña de protección de datos, la <strong>ANPD</strong> — <a href="https://www.gov.br/anpd" target="_blank" rel="noopener">gov.br/anpd</a> — o a la autoridad de control de tu propio país.</p>
+        </section>
+    </main>
+
+        <footer>
+        <div class="footer-inner">
+            <div class="footer-company">InnovateApps Co.</div>
+            <div><a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a></div>
+            <p class="footer-muted">Prazzo — control de ventas en cuotas, fiado y libreta de pagos.<br />Última actualización: 17 de julio de 2026.</p>
+            <div><a href="termos.html">Términos de Uso</a></div>
+            <a class="back-top" href="#top">↑ Volver arriba</a>
+        </div>
+    </footer>
+    </div>
+
+    <script>
+        (function () {
+            var el = document.documentElement;
+            var botoes = document.querySelectorAll('[data-set-lang]');
+
+            function aplicar(lang) {
+                el.setAttribute('data-active-lang', lang);
+                el.setAttribute('lang', lang === 'pt' ? 'pt-BR' : lang);
+                botoes.forEach(function (b) {
+                    b.setAttribute('aria-pressed', String(b.dataset.setLang === lang));
+                });
+                try {
+                    localStorage.setItem('prazzo-lang', lang);
+                } catch (e) {
+                    /* sem armazenamento: a escolha vale so nesta visita */
+                }
+            }
+
+            botoes.forEach(function (b) {
+                b.addEventListener('click', function () {
+                    aplicar(b.dataset.setLang);
+                    // Volta ao topo: o texto trocou inteiro, e a rolagem antiga
+                    // cairia no meio de outra secao.
+                    window.scrollTo(0, 0);
+                });
+            });
+
+            // O idioma ja foi definido no <head>; aqui so marcamos o botao.
+            aplicar(el.getAttribute('data-active-lang') || 'pt');
+        })();
+    </script>
 </body>
 </html>

@@ -93,13 +93,31 @@ a:hover {
 }
 
 /* ── Seletor de idioma ──
- * Links de verdade, um arquivo por idioma: documento legal precisa de URL
- * própria por versão (para citar, arquivar e mandar para a loja) e precisa
- * abrir sem JavaScript. Trocar o texto por script deixaria as três versões
- * compartilhando um endereço só.
+ * UMA URL para os três idiomas: as três versões vivem na mesma página e o
+ * seletor troca qual está visível, sem tocar no endereço. É exigência do
+ * cadastro na loja, que quer a mesma URL em todas as localizações.
+ *
+ * SEM JAVASCRIPT, AS TRÊS APARECEM EMPILHADAS — de propósito. Num documento
+ * legal, o pior resultado possível é o texto sumir; ler as três em sequência é
+ * feio, mas ninguém fica sem acesso. O script só ESCONDE o que não foi
+ * escolhido, então ele é melhoria, não requisito.
  *
  * `z-index` porque o `.hero::after` cobre o cabeçalho inteiro.
  */
+[data-lang] {
+    display: block;
+}
+
+html.js [data-lang] {
+    display: none;
+}
+
+html.js[data-active-lang='pt'] [data-lang='pt'],
+html.js[data-active-lang='en'] [data-lang='en'],
+html.js[data-active-lang='es'] [data-lang='es'] {
+    display: block;
+}
+
 .lang-switch {
     position: relative;
     z-index: 2;
@@ -110,7 +128,8 @@ a:hover {
     margin-bottom: 22px;
 }
 
-.lang-switch a {
+.lang-switch button {
+    font: inherit;
     background: rgba(15, 15, 35, 0.28);
     color: rgba(255, 255, 255, 0.85);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -118,21 +137,30 @@ a:hover {
     border-radius: 999px;
     font-size: 13.5px;
     font-weight: 600;
+    cursor: pointer;
     backdrop-filter: blur(4px);
 }
 
-.lang-switch a:hover {
-    text-decoration: none;
+.lang-switch button:hover {
     background: rgba(15, 15, 35, 0.5);
     color: #fff;
 }
 
-/* A página atual não é um link para lugar nenhum — fica marcada e sem ação. */
-.lang-switch a[aria-current='page'] {
+.lang-switch button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+.lang-switch button[aria-pressed='true'] {
     background: #fff;
     color: var(--primary-dark);
     border-color: #fff;
     cursor: default;
+}
+
+/* Sem script não há o que pressionar: o seletor não faria nada. */
+html:not(.js) .lang-switch {
+    display: none;
 }
 
 .hero h1 {

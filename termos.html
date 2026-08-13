@@ -4,27 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
-    <meta name="description" content="Termos de Uso do aplicativo Prazzo — controle de vendas a prazo, fiado e carnê. Desenvolvido pela InnovateApps Co." />
-    <title>Termos de Uso — Prazzo</title>
+    <meta name="description" content="Termos de Uso do aplicativo Prazzo (português, inglês e espanhol) — controle de vendas a prazo, fiado e carnê. InnovateApps Co." />
+    <title>Termos de Uso — Terms of Use — Términos de Uso · Prazzo</title>
+
+    <!--
+      No <head> e antes da folha de estilo, de proposito: marca o idioma ativo
+      ANTES da primeira pintura. Feito depois, a pagina apareceria em portugues
+      por um instante e trocaria na frente do leitor.
+    -->
+    <script>
+        (function () {
+            var el = document.documentElement;
+            el.className += ' js';
+            var escolhido = null;
+            try {
+                escolhido = localStorage.getItem('prazzo-lang');
+            } catch (e) {
+                /* navegador com armazenamento bloqueado: segue pelo idioma do sistema */
+            }
+            var lang = escolhido || (navigator.language || 'pt').slice(0, 2).toLowerCase();
+            // Idioma que nao falamos cai no ingles, nao no portugues: quem chega
+            // de fora tem mais chance de ler ingles.
+            if (['pt', 'en', 'es'].indexOf(lang) < 0) lang = 'en';
+            el.setAttribute('data-active-lang', lang);
+            el.setAttribute('lang', lang === 'pt' ? 'pt-BR' : lang);
+        })();
+    </script>
+
     <link rel="stylesheet" href="styles.css" />
-    <link rel="alternate" hreflang="pt-BR" href="termos.html" />
-    <link rel="alternate" hreflang="en" href="termos-en.html" />
-    <link rel="alternate" hreflang="es" href="termos-es.html" />
-    <link rel="alternate" hreflang="x-default" href="termos.html" />
 </head>
 <body>
     <header class="hero" id="top">
         <span class="hero-badge">Prazzo</span>
         <nav class="lang-switch" aria-label="Idioma / Language / Idioma">
-            <a href="termos.html" hreflang="pt-BR" aria-current="page">Português</a>
-            <a href="termos-en.html" hreflang="en">English</a>
-            <a href="termos-es.html" hreflang="es">Español</a>
+            <button type="button" data-set-lang="pt" aria-pressed="false">Português</button>
+            <button type="button" data-set-lang="en" aria-pressed="false">English</button>
+            <button type="button" data-set-lang="es" aria-pressed="false">Español</button>
         </nav>
-        <h1>Termos de Uso</h1>
-        <p>As regras de uso do aplicativo, do plano gratuito e do Prazzo Pro.</p>
+        <div data-lang="pt">
+            <h1>Termos de Uso</h1>
+            <p>As regras de uso do aplicativo, do plano gratuito e do Prazzo Pro.</p>
+        </div>
+        <div data-lang="en">
+            <h1>Terms of Use</h1>
+            <p>The rules for the app, the free plan and Prazzo Pro.</p>
+        </div>
+        <div data-lang="es">
+            <h1>Términos de Uso</h1>
+            <p>Las reglas de uso de la aplicación, del plan gratuito y de Prazzo Pro.</p>
+        </div>
     </header>
 
-    <main class="container">
+    <div data-lang="pt">
+        <main class="container">
         <div class="meta-card">
             <dl class="meta-grid">
                 <dt>Última atualização</dt>
@@ -43,23 +75,23 @@
         <nav class="toc" aria-label="Sumário">
             <h2>Sumário</h2>
             <ol>
-                <li><a href="#s1">O que o Prazzo é</a></li>
-                <li><a href="#s2">Sua conta</a></li>
-                <li><a href="#s3">Os seus dados são seus</a></li>
-                <li><a href="#s4">Como você deve usar</a></li>
-                <li><a href="#s5">Plano gratuito</a></li>
-                <li><a href="#s6">Prazzo Pro, teste grátis e renovação</a></li>
-                <li><a href="#s7">Pagamento, cancelamento e reembolso</a></li>
-                <li><a href="#s8">Cancelar NÃO apaga seus dados</a></li>
-                <li><a href="#s9">Funcionamento offline e validação da assinatura</a></li>
-                <li><a href="#s10">Disponibilidade e backup</a></li>
-                <li><a href="#s11">Limitação de responsabilidade</a></li>
-                <li><a href="#s12">Encerramento</a></li>
-                <li><a href="#s13">Mudanças, lei e contato</a></li>
+                <li><a href="#pt-s1">O que o Prazzo é</a></li>
+                <li><a href="#pt-s2">Sua conta</a></li>
+                <li><a href="#pt-s3">Os seus dados são seus</a></li>
+                <li><a href="#pt-s4">Como você deve usar</a></li>
+                <li><a href="#pt-s5">Plano gratuito</a></li>
+                <li><a href="#pt-s6">Prazzo Pro, teste grátis e renovação</a></li>
+                <li><a href="#pt-s7">Pagamento, cancelamento e reembolso</a></li>
+                <li><a href="#pt-s8">Cancelar NÃO apaga seus dados</a></li>
+                <li><a href="#pt-s9">Funcionamento offline e validação da assinatura</a></li>
+                <li><a href="#pt-s10">Disponibilidade e backup</a></li>
+                <li><a href="#pt-s11">Limitação de responsabilidade</a></li>
+                <li><a href="#pt-s12">Encerramento</a></li>
+                <li><a href="#pt-s13">Mudanças, lei e contato</a></li>
             </ol>
         </nav>
 
-        <section id="s1">
+        <section id="pt-s1">
             <h2 class="section-title"><span class="num">1.</span>O que o Prazzo é</h2>
             <hr class="section-divider" />
             <p>Uma ferramenta para lojistas registrarem e acompanharem vendas a prazo, fiado e carnê: estoque, clientes, vendas, parcelas, recebimentos e lucro.</p>
@@ -72,7 +104,7 @@
             </ul>
         </section>
 
-        <section id="s2">
+        <section id="pt-s2">
             <h2 class="section-title"><span class="num">2.</span>Sua conta</h2>
             <hr class="section-divider" />
             <p>Você precisa ter 18 anos ou mais e fornecer informações verdadeiras.</p>
@@ -80,14 +112,14 @@
             <p>Uma conta é de uma pessoa ou um negócio. Não a compartilhe.</p>
         </section>
 
-        <section id="s3">
+        <section id="pt-s3">
             <h2 class="section-title"><span class="num">3.</span>Os seus dados são seus</h2>
             <hr class="section-divider" />
             <p>O que você cadastra no Prazzo — clientes, produtos, vendas, carnês, fotos — é seu. Não reivindicamos propriedade sobre nada disso.</p>
             <p>Você nos dá apenas a licença estritamente necessária para hospedar, processar e exibir esses dados de volta para você. Nada além disso: não usamos seu conteúdo para finalidade própria, não o publicamos e não o vendemos.</p>
         </section>
 
-        <section id="s4">
+        <section id="pt-s4">
             <h2 class="section-title"><span class="num">4.</span>Como você deve usar</h2>
             <hr class="section-divider" />
             <p>Você concorda em não:</p>
@@ -100,13 +132,13 @@
             </ul>
         </section>
 
-        <section id="s5">
+        <section id="pt-s5">
             <h2 class="section-title"><span class="num">5.</span>Plano gratuito</h2>
             <hr class="section-divider" />
             <p>O Prazzo tem um plano gratuito permanente. Ele é limitado em quantidade de cadastros e não inclui alguns recursos, mas não expira e não vira demonstração.</p>
         </section>
 
-        <section id="s6">
+        <section id="pt-s6">
             <h2 class="section-title"><span class="num">6.</span>Prazzo Pro, teste grátis e renovação</h2>
             <hr class="section-divider" />
             <p>O plano pago remove os limites e libera recursos adicionais. O preço, a periodicidade (mensal ou anual) e as condições são exibidos no aplicativo antes da compra, sempre com os valores oficiais informados pela loja do seu aparelho (Google Play ou App Store) na sua moeda.</p>
@@ -115,7 +147,7 @@
             <p>Mudança de preço: podemos mudar os preços. Qualquer mudança será avisada com antecedência e só valerá na renovação seguinte, nunca retroativamente. Se não concordar, cancele antes de renovar.</p>
         </section>
 
-        <section id="s7">
+        <section id="pt-s7">
             <h2 class="section-title"><span class="num">7.</span>Pagamento, cancelamento e reembolso</h2>
             <hr class="section-divider" />
             <p>Todo pagamento é processado pela loja do seu aparelho (Google Play ou App Store), sob os termos da loja do seu aparelho (Google Play ou App Store). Não recebemos nem guardamos dados do seu cartão.</p>
@@ -124,7 +156,7 @@
             <p>Reembolsos seguem a política da loja do seu aparelho (Google Play ou App Store), que é quem processa a cobrança. Você também tem o direito de arrependimento em 7 dias previsto no art. 49 do Código de Defesa do Consumidor.</p>
         </section>
 
-        <section id="s8">
+        <section id="pt-s8">
             <h2 class="section-title"><span class="num">8.</span>Cancelar NÃO apaga seus dados</h2>
             <hr class="section-divider" />
             <p>Se você cancelar, se a cobrança falhar, ou se por qualquer motivo voltar ao plano gratuito:</p>
@@ -136,7 +168,7 @@
             </ul>
         </section>
 
-        <section id="s9">
+        <section id="pt-s9">
             <h2 class="section-title"><span class="num">9.</span>Funcionamento offline e validação da assinatura</h2>
             <hr class="section-divider" />
             <p>O Prazzo funciona sem internet: você cadastra, vende e registra pagamentos offline, e tudo sobe sozinho quando a conexão voltar.</p>
@@ -145,7 +177,7 @@
             <p>Estamos dizendo isto de forma destacada porque é uma limitação real do produto, e você tem o direito de saber antes de assinar.</p>
         </section>
 
-        <section id="s10">
+        <section id="pt-s10">
             <h2 class="section-title"><span class="num">10.</span>Disponibilidade e backup</h2>
             <hr class="section-divider" />
             <p>Fazemos o possível para manter o Prazzo no ar, mas não garantimos funcionamento ininterrupto. Pode haver manutenção, falha de fornecedor, bug ou indisponibilidade.</p>
@@ -153,7 +185,7 @@
             <p>Nenhum sistema é infalível. Recomendamos que você não dependa exclusivamente do aplicativo como único registro de dívidas relevantes do seu negócio.</p>
         </section>
 
-        <section id="s11">
+        <section id="pt-s11">
             <h2 class="section-title"><span class="num">11.</span>Limitação de responsabilidade</h2>
             <hr class="section-divider" />
             <p>O Prazzo é uma ferramenta de registro. As decisões de negócio são suas. Não nos responsabilizamos por:</p>
@@ -165,14 +197,14 @@
             </ul>
         </section>
 
-        <section id="s12">
+        <section id="pt-s12">
             <h2 class="section-title"><span class="num">12.</span>Encerramento</h2>
             <hr class="section-divider" />
             <p>Você pode parar de usar e pedir a exclusão da conta quando quiser (innovatesappsco@gmail.com).</p>
             <p>Podemos encerrar sua conta em caso de violação destes Termos, de fraude na assinatura ou de exigência legal. Havendo período pago não usufruído e não sendo caso de fraude, reembolsamos proporcionalmente.</p>
         </section>
 
-        <section id="s13">
+        <section id="pt-s13">
             <h2 class="section-title"><span class="num">13.</span>Mudanças, lei e contato</h2>
             <hr class="section-divider" />
             <p>Podemos atualizar estes Termos. Mudanças relevantes serão avisadas dentro do aplicativo antes de valer. Continuar usando depois disso significa aceitar.</p>
@@ -181,7 +213,7 @@
         </section>
     </main>
 
-    <footer>
+        <footer>
         <div class="footer-inner">
             <div class="footer-company">InnovateApps Co.</div>
             <div><a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a></div>
@@ -189,5 +221,376 @@
             <a class="back-top" href="#top">↑ Voltar ao topo</a>
         </div>
     </footer>
+    </div>
+
+    <div data-lang="en">
+        <main class="container">
+        <div class="meta-card">
+            <dl class="meta-grid">
+                <dt>Last updated</dt>
+                <dd>16 July 2026</dd>
+                <dt>App</dt>
+                <dd>Prazzo (Android and iPhone)</dd>
+                <dt>Developer</dt>
+                <dd>InnovateApps Co.</dd>
+                <dt>Contact</dt>
+                <dd><a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a></dd>
+                <dt>Privacy</dt>
+                <dd><a href="index.html">Privacy Policy</a></dd>
+            </dl>
+        </div>
+
+        <nav class="toc" aria-label="Contents">
+            <h2>Contents</h2>
+            <ol>
+                <li><a href="#en-s1">What Prazzo is</a></li>
+                <li><a href="#en-s2">Your account</a></li>
+                <li><a href="#en-s3">Your data is yours</a></li>
+                <li><a href="#en-s4">How you must use it</a></li>
+                <li><a href="#en-s5">Free plan</a></li>
+                <li><a href="#en-s6">Prazzo Pro, free trial and renewal</a></li>
+                <li><a href="#en-s7">Payment, cancellation and refunds</a></li>
+                <li><a href="#en-s8">Cancelling does NOT delete your data</a></li>
+                <li><a href="#en-s9">Offline use and subscription checks</a></li>
+                <li><a href="#en-s10">Availability and backup</a></li>
+                <li><a href="#en-s11">Limitation of liability</a></li>
+                <li><a href="#en-s12">Termination</a></li>
+                <li><a href="#en-s13">Changes, governing law and contact</a></li>
+            </ol>
+        </nav>
+
+        <section id="en-s1">
+            <h2 class="section-title"><span class="num">1.</span>What Prazzo is</h2>
+            <hr class="section-divider" />
+            <p>A tool for merchants to record and follow instalment sales, store credit and payment books: inventory, customers, sales, instalments, receipts and profit.</p>
+            <p>What Prazzo is NOT — and this matters:</p>
+            <ul class="clean">
+                <li>It is not a financial institution. We do not lend money, we are not a party to any sale of yours, and we do not intermediate payments between you and your customer.</li>
+                <li>It does not process your customers' payments. When you record that an instalment was paid, that is a note you made. No money passes through Prazzo.</li>
+                <li>It is not a credit reporting service. We do not query and do not feed any credit bureau. Marking a customer as overdue in Prazzo does not blacklist anyone.</li>
+                <li>It is not accounting, legal or financial advice. The figures the app calculates, profit included, are an aid — not an accounting record.</li>
+            </ul>
+        </section>
+
+        <section id="en-s2">
+            <h2 class="section-title"><span class="num">2.</span>Your account</h2>
+            <hr class="section-divider" />
+            <p>You must be 18 or older and provide truthful information.</p>
+            <p>You are responsible for keeping your password secret and for everything that happens in your account. If you suspect unauthorised access, write to innovatesappsco@gmail.com.</p>
+            <p>An account belongs to one person or one business. Do not share it.</p>
+        </section>
+
+        <section id="en-s3">
+            <h2 class="section-title"><span class="num">3.</span>Your data is yours</h2>
+            <hr class="section-divider" />
+            <p>What you enter into Prazzo — customers, products, sales, payment books, photos — is yours. We claim no ownership over any of it.</p>
+            <p>You grant us only the licence strictly necessary to host, process and display that data back to you. Nothing beyond that: we do not use your content for our own purposes, we do not publish it and we do not sell it.</p>
+        </section>
+
+        <section id="en-s4">
+            <h2 class="section-title"><span class="num">4.</span>How you must use it</h2>
+            <hr class="section-divider" />
+            <p>You agree not to:</p>
+            <ul class="clean">
+                <li>Use Prazzo for unlawful activity.</li>
+                <li>Register other people's data without a legal basis to do so (see the Privacy Policy).</li>
+                <li>Use the app to embarrass, expose, threaten or humiliate anyone who owes you money. Collecting a debt is legitimate; exposing a debtor is not, and consumer protection law forbids it.</li>
+                <li>Circumvent the free plan limits, defraud the subscription, or reverse engineer the app to obtain paid features without paying.</li>
+                <li>Overload or attack the service, or attempt to reach data belonging to other accounts.</li>
+            </ul>
+        </section>
+
+        <section id="en-s5">
+            <h2 class="section-title"><span class="num">5.</span>Free plan</h2>
+            <hr class="section-divider" />
+            <p>Prazzo has a permanent free plan. It is limited in how many records you can create and it does not include some features, but it does not expire and does not turn into a demo.</p>
+        </section>
+
+        <section id="en-s6">
+            <h2 class="section-title"><span class="num">6.</span>Prazzo Pro, free trial and renewal</h2>
+            <hr class="section-divider" />
+            <p>The paid plan removes the limits and unlocks additional features. The price, the period (monthly or yearly) and the conditions are shown in the app before purchase, always using the official amounts reported by your device's store (Google Play or the App Store) in your currency.</p>
+            <p>Free trial: new subscribers get <strong>3 days on iPhone and 5 days on Android</strong>. The period that applies to you is always the one shown on the subscription screen, before you buy. Please read this carefully — at the end of the trial the subscription is charged automatically, at the amount and period you chose, unless you cancel first. Cancelling during the trial results in no charge at all.</p>
+            <p>Automatic renewal: the Prazzo Pro subscription renews automatically at the end of each period, and your device's store (Google Play or the App Store) charges the amount then in force, until you cancel.</p>
+            <p>Price changes: we may change prices. Any change will be announced in advance and will only apply from the following renewal, never retroactively. If you disagree, cancel before renewing.</p>
+        </section>
+
+        <section id="en-s7">
+            <h2 class="section-title"><span class="num">7.</span>Payment, cancellation and refunds</h2>
+            <hr class="section-divider" />
+            <p>All payment is processed by your device's store (Google Play or the App Store), under that store's terms. We do not receive and do not keep your card details.</p>
+            <p>Cancel whenever you like, with no penalty and no need to justify: Google Play → Menu → Subscriptions → Prazzo → Cancel (Android), or Settings → your name → Subscriptions → Prazzo → Cancel Subscription (iPhone). The app also has a button that takes you straight there.</p>
+            <p>When you cancel, you keep Pro until the end of the period already paid for. After that you return to the free plan.</p>
+            <p>Refunds follow the policy of your device's store, which is who processes the charge. You also keep any statutory withdrawal or refund right available to you under the consumer law of your country.</p>
+        </section>
+
+        <section id="en-s8">
+            <h2 class="section-title"><span class="num">8.</span>Cancelling does NOT delete your data</h2>
+            <hr class="section-divider" />
+            <p>If you cancel, if a charge fails, or if for any reason you return to the free plan:</p>
+            <ul class="clean">
+                <li>You keep seeing all of your data: every sale, every customer, every payment book.</li>
+                <li>You keep editing what already exists.</li>
+                <li>You keep recording payments received.</li>
+                <li>Nothing is deleted.</li>
+            </ul>
+        </section>
+
+        <section id="en-s9">
+            <h2 class="section-title"><span class="num">9.</span>Offline use and subscription checks</h2>
+            <hr class="section-divider" />
+            <p>Prazzo works without an internet connection: you can register, sell and record payments offline, and everything uploads on its own once the connection returns.</p>
+            <p>But Prazzo Pro needs to confirm your subscription periodically. If the app goes more than 2 days without managing to reach the internet, the Pro features are paused until the next connection.</p>
+            <p>This does not cancel your subscription and does not delete anything. As soon as there is internet, Pro comes back on its own, with no new charge and nothing for you to do.</p>
+            <p>We are stating this prominently because it is a real limitation of the product, and you have the right to know before subscribing.</p>
+        </section>
+
+        <section id="en-s10">
+            <h2 class="section-title"><span class="num">10.</span>Availability and backup</h2>
+            <hr class="section-divider" />
+            <p>We do what we can to keep Prazzo running, but we do not guarantee uninterrupted service. There may be maintenance, supplier failure, bugs or downtime.</p>
+            <p>We may change, suspend or discontinue features. If something significant is discontinued, we will give reasonable advance notice and, where a paid subscription is affected, we will handle a pro-rata refund.</p>
+            <p>No system is infallible. We recommend that you do not rely on the app alone as the only record of debts that matter to your business.</p>
+        </section>
+
+        <section id="en-s11">
+            <h2 class="section-title"><span class="num">11.</span>Limitation of liability</h2>
+            <hr class="section-divider" />
+            <p>Prazzo is a record-keeping tool. Business decisions are yours. We are not liable for:</p>
+            <ul class="clean">
+                <li>Losses arising from an instalment sale you chose to make.</li>
+                <li>A customer of yours who did not pay.</li>
+                <li>Typing mistakes you make in amounts, dates or instalments.</li>
+                <li>Use of the app contrary to these Terms or to the law.</li>
+            </ul>
+        </section>
+
+        <section id="en-s12">
+            <h2 class="section-title"><span class="num">12.</span>Termination</h2>
+            <hr class="section-divider" />
+            <p>You may stop using the app and ask for your account to be deleted whenever you wish (innovatesappsco@gmail.com), or delete it directly in the app under Settings → Account.</p>
+            <p>We may terminate your account in case of breach of these Terms, subscription fraud, or legal requirement. Where a paid period has not been used and there is no fraud, we refund pro rata.</p>
+        </section>
+
+        <section id="en-s13">
+            <h2 class="section-title"><span class="num">13.</span>Changes, governing law and contact</h2>
+            <hr class="section-divider" />
+            <p>We may update these Terms. Material changes will be announced inside the app before they take effect. Continuing to use the app after that means you accept them.</p>
+            <p>Brazilian law applies, as that is where InnovateApps Co. is established. Nothing here removes the mandatory consumer rights available to you under the law of your own country of residence.</p>
+            <p>InnovateApps Co. — innovatesappsco@gmail.com</p>
+        </section>
+    </main>
+
+        <footer>
+        <div class="footer-inner">
+            <div class="footer-company">InnovateApps Co.</div>
+            <div><a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a></div>
+            <p class="footer-muted">Prazzo — instalment sales, store credit and payment book management.<br />Last updated: 16 July 2026</p>
+            <div><a href="index.html">Privacy Policy</a></div>
+            <a class="back-top" href="#top">↑ Back to top</a>
+        </div>
+    </footer>
+    </div>
+
+    <div data-lang="es">
+        <main class="container">
+        <div class="meta-card">
+            <dl class="meta-grid">
+                <dt>Última actualización</dt>
+                <dd>16 de julio de 2026</dd>
+                <dt>Aplicación</dt>
+                <dd>Prazzo (Android e iPhone)</dd>
+                <dt>Desarrollador</dt>
+                <dd>InnovateApps Co.</dd>
+                <dt>Contacto</dt>
+                <dd><a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a></dd>
+                <dt>Privacidad</dt>
+                <dd><a href="index.html">Política de Privacidad</a></dd>
+            </dl>
+        </div>
+
+        <nav class="toc" aria-label="Índice">
+            <h2>Índice</h2>
+            <ol>
+                <li><a href="#es-s1">Qué es Prazzo</a></li>
+                <li><a href="#es-s2">Tu cuenta</a></li>
+                <li><a href="#es-s3">Tus datos son tuyos</a></li>
+                <li><a href="#es-s4">Cómo debes usarlo</a></li>
+                <li><a href="#es-s5">Plan gratuito</a></li>
+                <li><a href="#es-s6">Prazzo Pro, prueba gratis y renovación</a></li>
+                <li><a href="#es-s7">Pago, cancelación y reembolso</a></li>
+                <li><a href="#es-s8">Cancelar NO borra tus datos</a></li>
+                <li><a href="#es-s9">Funcionamiento sin conexión y validación de la suscripción</a></li>
+                <li><a href="#es-s10">Disponibilidad y respaldo</a></li>
+                <li><a href="#es-s11">Limitación de responsabilidad</a></li>
+                <li><a href="#es-s12">Terminación</a></li>
+                <li><a href="#es-s13">Cambios, ley aplicable y contacto</a></li>
+            </ol>
+        </nav>
+
+        <section id="es-s1">
+            <h2 class="section-title"><span class="num">1.</span>Qué es Prazzo</h2>
+            <hr class="section-divider" />
+            <p>Una herramienta para que los comerciantes registren y sigan ventas en cuotas, fiado y libretas de pago: inventario, clientes, ventas, cuotas, cobros y ganancia.</p>
+            <p>Lo que Prazzo NO es — y esto importa:</p>
+            <ul class="clean">
+                <li>No es una institución financiera. No prestamos dinero, no somos parte de ninguna venta tuya y no intermediamos pagos entre tú y tu cliente.</li>
+                <li>No procesa los pagos de tus clientes. Cuando registras que cobraste una cuota, eso es una anotación tuya. Ningún dinero pasa por Prazzo.</li>
+                <li>No es un servicio de protección al crédito. No consultamos ni alimentamos ningún buró de crédito. Marcar a un cliente como atrasado en Prazzo no lo reporta a ningún registro.</li>
+                <li>No es asesoría contable, jurídica ni financiera. Las cifras que la aplicación calcula, incluida la ganancia, son una ayuda — no una pieza contable.</li>
+            </ul>
+        </section>
+
+        <section id="es-s2">
+            <h2 class="section-title"><span class="num">2.</span>Tu cuenta</h2>
+            <hr class="section-divider" />
+            <p>Debes tener 18 años o más y facilitar información verdadera.</p>
+            <p>Eres responsable de mantener tu contraseña en secreto y de todo lo que ocurra en tu cuenta. Si sospechas de un acceso indebido, escribe a innovatesappsco@gmail.com.</p>
+            <p>Una cuenta es de una persona o de un negocio. No la compartas.</p>
+        </section>
+
+        <section id="es-s3">
+            <h2 class="section-title"><span class="num">3.</span>Tus datos son tuyos</h2>
+            <hr class="section-divider" />
+            <p>Lo que registras en Prazzo — clientes, productos, ventas, libretas, fotos — es tuyo. No reivindicamos propiedad sobre nada de eso.</p>
+            <p>Nos das únicamente la licencia estrictamente necesaria para alojar, procesar y mostrarte esos datos de vuelta. Nada más: no usamos tu contenido para finalidad propia, no lo publicamos y no lo vendemos.</p>
+        </section>
+
+        <section id="es-s4">
+            <h2 class="section-title"><span class="num">4.</span>Cómo debes usarlo</h2>
+            <hr class="section-divider" />
+            <p>Aceptas no:</p>
+            <ul class="clean">
+                <li>Usar Prazzo para actividad ilícita.</li>
+                <li>Registrar datos de personas sin tener base legal para ello (ver la Política de Privacidad).</li>
+                <li>Usar la aplicación para avergonzar, exponer, amenazar o humillar a quien te debe. Cobrar es legítimo; exponer a un deudor no lo es, y la normativa de defensa del consumidor lo prohíbe.</li>
+                <li>Burlar los límites del plan gratuito, defraudar la suscripción o hacer ingeniería inversa para obtener funciones de pago sin pagar.</li>
+                <li>Sobrecargar, atacar o intentar acceder a datos de otras cuentas.</li>
+            </ul>
+        </section>
+
+        <section id="es-s5">
+            <h2 class="section-title"><span class="num">5.</span>Plan gratuito</h2>
+            <hr class="section-divider" />
+            <p>Prazzo tiene un plan gratuito permanente. Está limitado en cantidad de registros y no incluye algunas funciones, pero no caduca y no se convierte en una demostración.</p>
+        </section>
+
+        <section id="es-s6">
+            <h2 class="section-title"><span class="num">6.</span>Prazzo Pro, prueba gratis y renovación</h2>
+            <hr class="section-divider" />
+            <p>El plan de pago quita los límites y habilita funciones adicionales. El precio, la periodicidad (mensual o anual) y las condiciones se muestran en la aplicación antes de la compra, siempre con los importes oficiales informados por la tienda de tu dispositivo (Google Play o App Store) en tu moneda.</p>
+            <p>Prueba gratis: los nuevos suscriptores tienen <strong>3 días en iPhone y 5 días en Android</strong>. El período que se te aplica es siempre el que aparece en la pantalla de suscripción, antes de comprar. Lee esta parte con atención — al terminar la prueba, la suscripción se cobra automáticamente, por el importe y la periodicidad que elegiste, salvo que canceles antes. Cancelar durante la prueba no genera ningún cobro.</p>
+            <p>Renovación automática: la suscripción de Prazzo Pro se renueva automáticamente al final de cada período, y la tienda de tu dispositivo (Google Play o App Store) cobra el importe vigente, hasta que canceles.</p>
+            <p>Cambio de precio: podemos cambiar los precios. Cualquier cambio se avisará con antelación y solo valdrá a partir de la renovación siguiente, nunca de forma retroactiva. Si no estás de acuerdo, cancela antes de renovar.</p>
+        </section>
+
+        <section id="es-s7">
+            <h2 class="section-title"><span class="num">7.</span>Pago, cancelación y reembolso</h2>
+            <hr class="section-divider" />
+            <p>Todo el pago lo procesa la tienda de tu dispositivo (Google Play o App Store), bajo los términos de esa tienda. No recibimos ni guardamos los datos de tu tarjeta.</p>
+            <p>Cancela cuando quieras, sin penalización y sin justificación: Google Play → Menú → Suscripciones → Prazzo → Cancelar (Android), o Ajustes → tu nombre → Suscripciones → Prazzo → Cancelar suscripción (iPhone). La aplicación también tiene un botón que lleva directo allí.</p>
+            <p>Al cancelar, conservas Pro hasta el final del período ya pagado. Después vuelves al plan gratuito.</p>
+            <p>Los reembolsos siguen la política de la tienda de tu dispositivo, que es quien procesa el cobro. También conservas cualquier derecho de desistimiento o reembolso que te otorgue la normativa de consumo de tu país.</p>
+        </section>
+
+        <section id="es-s8">
+            <h2 class="section-title"><span class="num">8.</span>Cancelar NO borra tus datos</h2>
+            <hr class="section-divider" />
+            <p>Si cancelas, si falla un cobro, o si por cualquier motivo vuelves al plan gratuito:</p>
+            <ul class="clean">
+                <li>Sigues viendo todos tus datos: todas las ventas, todos los clientes, todas las libretas.</li>
+                <li>Sigues editando lo que ya existe.</li>
+                <li>Sigues registrando pagos recibidos.</li>
+                <li>No se borra nada.</li>
+            </ul>
+        </section>
+
+        <section id="es-s9">
+            <h2 class="section-title"><span class="num">9.</span>Funcionamiento sin conexión y validación de la suscripción</h2>
+            <hr class="section-divider" />
+            <p>Prazzo funciona sin internet: registras, vendes y anotas pagos sin conexión, y todo se sube solo cuando vuelve la conexión.</p>
+            <p>Pero Prazzo Pro necesita confirmar tu suscripción periódicamente. Si la aplicación pasa más de 2 días sin lograr conectarse a internet, las funciones Pro se pausan hasta la próxima conexión.</p>
+            <p>Esto no cancela tu suscripción y no borra nada. En cuanto haya internet, Pro vuelve solo, sin nuevo cobro y sin que tengas que hacer nada.</p>
+            <p>Lo decimos de forma destacada porque es una limitación real del producto, y tienes derecho a saberlo antes de suscribirte.</p>
+        </section>
+
+        <section id="es-s10">
+            <h2 class="section-title"><span class="num">10.</span>Disponibilidad y respaldo</h2>
+            <hr class="section-divider" />
+            <p>Hacemos lo posible por mantener Prazzo en funcionamiento, pero no garantizamos un servicio ininterrumpido. Puede haber mantenimiento, fallo de proveedor, errores o indisponibilidad.</p>
+            <p>Podemos modificar, suspender o descontinuar funciones. Si algo se descontinúa de forma relevante, avisaremos con antelación razonable y, si hay una suscripción de pago afectada, trataremos el reembolso proporcional.</p>
+            <p>Ningún sistema es infalible. Recomendamos que no dependas exclusivamente de la aplicación como único registro de las deudas relevantes de tu negocio.</p>
+        </section>
+
+        <section id="es-s11">
+            <h2 class="section-title"><span class="num">11.</span>Limitación de responsabilidad</h2>
+            <hr class="section-divider" />
+            <p>Prazzo es una herramienta de registro. Las decisiones de negocio son tuyas. No respondemos por:</p>
+            <ul class="clean">
+                <li>Pérdidas derivadas de una venta en cuotas que decidiste hacer.</li>
+                <li>Un cliente tuyo que no pagó.</li>
+                <li>Errores de escritura tuyos en importes, plazos o cuotas.</li>
+                <li>Uso de la aplicación en desacuerdo con estos Términos o con la ley.</li>
+            </ul>
+        </section>
+
+        <section id="es-s12">
+            <h2 class="section-title"><span class="num">12.</span>Terminación</h2>
+            <hr class="section-divider" />
+            <p>Puedes dejar de usar la aplicación y pedir la eliminación de tu cuenta cuando quieras (innovatesappsco@gmail.com), o eliminarla directamente en la aplicación en Configuración → Cuenta.</p>
+            <p>Podemos cerrar tu cuenta en caso de incumplimiento de estos Términos, fraude en la suscripción o exigencia legal. Si hay un período pagado no disfrutado y no se trata de fraude, reembolsamos de forma proporcional.</p>
+        </section>
+
+        <section id="es-s13">
+            <h2 class="section-title"><span class="num">13.</span>Cambios, ley aplicable y contacto</h2>
+            <hr class="section-divider" />
+            <p>Podemos actualizar estos Términos. Los cambios relevantes se avisarán dentro de la aplicación antes de entrar en vigor. Seguir usándola después de eso significa aceptarlos.</p>
+            <p>Se aplica la ley brasileña, por ser donde está establecida InnovateApps Co. Nada de lo aquí dispuesto elimina los derechos de consumidor irrenunciables que te otorgue la ley de tu país de residencia.</p>
+            <p>InnovateApps Co. — innovatesappsco@gmail.com</p>
+        </section>
+    </main>
+
+        <footer>
+        <div class="footer-inner">
+            <div class="footer-company">InnovateApps Co.</div>
+            <div><a href="mailto:innovatesappsco@gmail.com">innovatesappsco@gmail.com</a></div>
+            <p class="footer-muted">Prazzo — control de ventas en cuotas, fiado y libreta de pagos.<br />Última actualización: 16 de julio de 2026</p>
+            <div><a href="index.html">Política de Privacidad</a></div>
+            <a class="back-top" href="#top">↑ Volver arriba</a>
+        </div>
+    </footer>
+    </div>
+
+    <script>
+        (function () {
+            var el = document.documentElement;
+            var botoes = document.querySelectorAll('[data-set-lang]');
+
+            function aplicar(lang) {
+                el.setAttribute('data-active-lang', lang);
+                el.setAttribute('lang', lang === 'pt' ? 'pt-BR' : lang);
+                botoes.forEach(function (b) {
+                    b.setAttribute('aria-pressed', String(b.dataset.setLang === lang));
+                });
+                try {
+                    localStorage.setItem('prazzo-lang', lang);
+                } catch (e) {
+                    /* sem armazenamento: a escolha vale so nesta visita */
+                }
+            }
+
+            botoes.forEach(function (b) {
+                b.addEventListener('click', function () {
+                    aplicar(b.dataset.setLang);
+                    // Volta ao topo: o texto trocou inteiro, e a rolagem antiga
+                    // cairia no meio de outra secao.
+                    window.scrollTo(0, 0);
+                });
+            });
+
+            // O idioma ja foi definido no <head>; aqui so marcamos o botao.
+            aplicar(el.getAttribute('data-active-lang') || 'pt');
+        })();
+    </script>
 </body>
 </html>
