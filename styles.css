@@ -1,34 +1,45 @@
 /*
- * Política de Privacidade — Prazzo
- * Visual baseado no tema escuro do app (src/theme/colors.ts).
+ * Prazzo — documentos legais (Política de Privacidade e Termos de Uso).
+ *
+ * Paleta tirada do tema escuro do próprio aplicativo (src/theme/colors.ts):
+ * o indigo #0F0F23 do fundo, o roxo #6C63FF da marca e o verde-água #4ECDC4
+ * do gradiente. O documento pertence ao mesmo mundo que descreve.
+ *
+ * Um documento legal é lido em duas velocidades: alguém procurando UMA
+ * resposta (e que precisa do sumário e de títulos que saltem) e alguém lendo
+ * de ponta a ponta (que precisa de linha confortável e respiro entre blocos).
+ * A tipografia abaixo tenta servir aos dois.
  */
 
 :root {
     --primary: #6c63ff;
     --primary-dark: #5a52d5;
-    --primary-light: #8b85ff;
+    --primary-light: #9a94ff;
     --gradient-start: #6c63ff;
     --gradient-end: #4ecdc4;
 
     --bg: #0f0f23;
-    --bg-secondary: #1a1a2e;
-    --surface: #1e1e3a;
-    --surface-light: #2a2a4a;
+    --bg-secondary: #16162b;
+    --surface: #1c1c38;
+    --surface-light: #262647;
 
-    --text-primary: #ffffff;
-    --text-secondary: #b8b8d4;
-    --text-muted: #6b6b8d;
+    --text-primary: #f4f4fb;
+    --text-secondary: #b9b9d6;
+    --text-muted: #7c7ca0;
 
     --success: #4ecdc4;
     --error: #ff6b6b;
-    --warning: #ffe66d;
+    --warning: #ffd93d;
 
     --border: #2a2a4a;
-    --border-light: #3a3a5a;
+    --border-light: #3a3a5f;
 
-    --radius: 16px;
-    --radius-sm: 10px;
-    --maxw: 780px;
+    --radius: 18px;
+    --radius-sm: 12px;
+    --maxw: 760px;
+
+    --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.45);
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 * {
@@ -37,6 +48,7 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -45,69 +57,51 @@ body {
     color: var(--text-secondary);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
         Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 17px;
+    line-height: 1.75;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 a {
     color: var(--primary-light);
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: rgba(154, 148, 255, 0.35);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
     word-break: break-word;
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration-color: var(--primary-light);
 }
 
-/* ── Hero ── */
-.hero {
-    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-    padding: 64px 24px 72px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 
-.hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.18), transparent 55%);
-    pointer-events: none;
-}
-
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(15, 15, 35, 0.35);
-    color: #fff;
-    padding: 6px 16px;
-    border-radius: 999px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    margin-bottom: 20px;
-    backdrop-filter: blur(4px);
-}
-
-/* ── Seletor de idioma ──
- * UMA URL para os três idiomas: as três versões vivem na mesma página e o
- * seletor troca qual está visível, sem tocar no endereço. É exigência do
- * cadastro na loja, que quer a mesma URL em todas as localizações.
+/* ─────────────────────────────────────────────────────────────
+ * IDIOMA
  *
- * SEM JAVASCRIPT, AS TRÊS APARECEM EMPILHADAS — de propósito. Num documento
- * legal, o pior resultado possível é o texto sumir; ler as três em sequência é
- * feio, mas ninguém fica sem acesso. O script só ESCONDE o que não foi
- * escolhido, então ele é melhoria, não requisito.
+ * Os três idiomas moram na mesma página e na mesma URL — exigência do
+ * cadastro nas lojas, que pede a mesma URL em todas as localizações.
  *
- * `z-index` porque o `.hero::after` cobre o cabeçalho inteiro.
- */
+ * Sem JavaScript aparece só o português, nunca os três empilhados. Com
+ * JavaScript, o seletor manda.
+ * ───────────────────────────────────────────────────────────── */
 [data-lang] {
+    display: none;
+}
+
+[data-lang='pt'] {
     display: block;
 }
 
+/* `html.js [data-lang]` (0,2,0) vence `[data-lang="pt"]` (0,1,0) por
+ * especificidade — é o que passa o controle para o seletor. */
 html.js [data-lang] {
     display: none;
 }
@@ -121,67 +115,124 @@ html.js[data-active-lang='es'] [data-lang='es'] {
 .lang-switch {
     position: relative;
     z-index: 2;
-    display: flex;
-    justify-content: center;
+    display: inline-flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 22px;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 26px;
+    padding: 4px;
+    border-radius: 999px;
+    background: rgba(15, 15, 35, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
 }
 
 .lang-switch button {
     font: inherit;
-    background: rgba(15, 15, 35, 0.28);
-    color: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 5px 15px;
-    border-radius: 999px;
-    font-size: 13.5px;
+    font-size: 14px;
     font-weight: 600;
+    letter-spacing: 0.2px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.82);
+    border: 0;
+    padding: 6px 16px;
+    border-radius: 999px;
     cursor: pointer;
-    backdrop-filter: blur(4px);
+    transition: background-color 0.18s ease, color 0.18s ease;
 }
 
 .lang-switch button:hover {
-    background: rgba(15, 15, 35, 0.5);
+    background: rgba(255, 255, 255, 0.14);
     color: #fff;
-}
-
-.lang-switch button:focus-visible {
-    outline: 2px solid #fff;
-    outline-offset: 2px;
 }
 
 .lang-switch button[aria-pressed='true'] {
     background: #fff;
     color: var(--primary-dark);
-    border-color: #fff;
     cursor: default;
+    box-shadow: var(--shadow-sm);
 }
 
-/* Sem script não há o que pressionar: o seletor não faria nada. */
+/* Sem script os botões não fariam nada — botão morto é pior que botão nenhum. */
 html:not(.js) .lang-switch {
     display: none;
 }
 
+/* ── Cabeçalho ── */
+.hero {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    padding: 56px 24px 84px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 28% 18%, rgba(255, 255, 255, 0.22), transparent 58%);
+    pointer-events: none;
+}
+
+/* Ícone do aplicativo: quem chega por um link da loja precisa reconhecer na
+ * hora que está no lugar certo. */
+.hero-icon {
+    position: relative;
+    z-index: 2;
+    width: 84px;
+    height: 84px;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto 16px;
+    box-shadow: 0 12px 30px rgba(15, 15, 35, 0.4);
+}
+
+.hero-badge {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 15, 35, 0.3);
+    color: #fff;
+    padding: 5px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    backdrop-filter: blur(6px);
+}
+
 .hero h1 {
+    position: relative;
+    z-index: 2;
     margin: 0;
     color: #fff;
-    font-size: 34px;
+    font-size: 38px;
     font-weight: 800;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.9px;
+    line-height: 1.15;
+    text-wrap: balance;
 }
 
 .hero p {
-    margin: 12px 0 0;
-    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    z-index: 2;
+    margin: 14px auto 0;
+    max-width: 30em;
+    color: rgba(255, 255, 255, 0.92);
     font-size: 17px;
+    line-height: 1.6;
 }
 
 /* ── Container ── */
 .container {
     max-width: var(--maxw);
-    margin: -40px auto 0;
-    padding: 0 20px 80px;
+    margin: -52px auto 0;
+    padding: 0 20px 90px;
     position: relative;
     z-index: 1;
 }
@@ -189,28 +240,34 @@ html:not(.js) .lang-switch {
 /* ── Cartão de metadados ── */
 .meta-card {
     background: var(--surface);
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-light);
     border-radius: var(--radius);
-    padding: 24px 28px;
-    margin-bottom: 32px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    padding: 26px 30px;
+    margin-bottom: 36px;
+    box-shadow: var(--shadow-lg);
 }
 
 .meta-grid {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 10px 20px;
+    grid-template-columns: max-content 1fr;
+    gap: 12px 28px;
+    margin: 0;
     font-size: 15px;
 }
 
 .meta-grid dt {
     color: var(--text-muted);
     font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    align-self: center;
 }
 
 .meta-grid dd {
     margin: 0;
     color: var(--text-primary);
+    font-weight: 500;
 }
 
 /* ── Sumário ── */
@@ -218,93 +275,119 @@ html:not(.js) .lang-switch {
     background: var(--bg-secondary);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 24px 28px;
-    margin-bottom: 40px;
+    padding: 26px 30px;
+    margin-bottom: 48px;
 }
 
 .toc h2 {
-    margin: 0 0 14px;
-    font-size: 14px;
+    margin: 0 0 16px;
+    font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.6px;
     color: var(--text-muted);
+    font-weight: 700;
 }
 
 .toc ol {
     margin: 0;
-    padding-left: 20px;
+    padding-left: 22px;
     columns: 2;
-    column-gap: 28px;
+    column-gap: 32px;
+    font-size: 15.5px;
 }
 
 .toc li {
-    margin-bottom: 8px;
+    margin-bottom: 9px;
     break-inside: avoid;
+    color: var(--text-muted);
 }
 
 .toc a {
     color: var(--text-secondary);
+    text-decoration: none;
 }
 
 .toc a:hover {
     color: var(--primary-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 /* ── Seções ── */
 section {
-    margin-bottom: 44px;
-    scroll-margin-top: 24px;
+    margin-bottom: 52px;
+    scroll-margin-top: 28px;
 }
 
 h2.section-title {
     color: var(--text-primary);
-    font-size: 23px;
+    font-size: 25px;
     font-weight: 700;
-    margin: 0 0 8px;
+    margin: 0 0 10px;
     padding-top: 8px;
-    letter-spacing: -0.3px;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    text-wrap: balance;
 }
 
 h2.section-title .num {
     color: var(--primary-light);
     margin-right: 10px;
+    font-variant-numeric: tabular-nums;
 }
 
 h3 {
     color: var(--text-primary);
-    font-size: 18px;
-    font-weight: 600;
-    margin: 28px 0 8px;
+    font-size: 18.5px;
+    font-weight: 650;
+    margin: 34px 0 10px;
+    letter-spacing: -0.2px;
 }
 
 p {
-    margin: 12px 0;
+    margin: 14px 0;
 }
 
 strong {
     color: var(--text-primary);
-    font-weight: 600;
+    font-weight: 650;
+}
+
+code {
+    font-family: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: var(--surface-light);
+    color: var(--text-primary);
+    padding: 2px 6px;
+    border-radius: 5px;
+}
+
+/* Usado nas tabelas para marcar a plataforma — "(Android)", "(iPhone)". */
+.muted {
+    color: var(--text-muted);
+    font-weight: 400;
 }
 
 .section-divider {
     height: 1px;
-    background: linear-gradient(90deg, var(--border), transparent);
+    background: linear-gradient(90deg, var(--primary), var(--border) 22%, transparent);
     border: 0;
-    margin: 0 0 36px;
+    margin: 0 0 30px;
 }
 
 /* ── Tabelas ── */
 .table-wrap {
     overflow-x: auto;
-    margin: 18px 0;
+    margin: 22px 0;
     border-radius: var(--radius-sm);
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-light);
+    background: var(--surface);
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 14.5px;
+    font-size: 15px;
     min-width: 460px;
 }
 
@@ -312,35 +395,43 @@ thead th {
     background: var(--surface-light);
     color: var(--text-primary);
     text-align: left;
-    padding: 12px 16px;
-    font-weight: 600;
+    padding: 13px 18px;
+    font-weight: 650;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    white-space: nowrap;
 }
 
 tbody td {
-    padding: 12px 16px;
+    padding: 13px 18px;
     border-top: 1px solid var(--border);
     vertical-align: top;
+    line-height: 1.6;
 }
 
 tbody tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.022);
 }
 
-/* ── Callouts ── */
+/* ── Destaques ── */
 .callout {
     border-radius: var(--radius-sm);
-    padding: 16px 20px;
-    margin: 20px 0;
+    padding: 18px 22px;
+    margin: 24px 0;
+    border: 1px solid rgba(108, 99, 255, 0.28);
     border-left: 4px solid var(--primary);
-    background: rgba(108, 99, 255, 0.08);
+    background: rgba(108, 99, 255, 0.09);
 }
 
 .callout.warn {
+    border-color: rgba(255, 217, 61, 0.28);
     border-left-color: var(--warning);
-    background: rgba(255, 230, 109, 0.08);
+    background: rgba(255, 217, 61, 0.08);
 }
 
 .callout.info {
+    border-color: rgba(78, 205, 196, 0.28);
     border-left-color: var(--success);
     background: rgba(78, 205, 196, 0.08);
 }
@@ -353,11 +444,11 @@ tbody tr:nth-child(even) {
     margin-bottom: 0;
 }
 
-/* ── Lista "não coletamos" ── */
+/* ── Lista do que NÃO é coletado ── */
 .no-list {
     list-style: none;
     padding: 0;
-    margin: 18px 0;
+    margin: 22px 0;
     display: grid;
     gap: 10px;
 }
@@ -366,44 +457,51 @@ tbody tr:nth-child(even) {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
-    padding: 14px 16px 14px 48px;
+    padding: 15px 18px 15px 52px;
     position: relative;
+    font-size: 16px;
 }
 
 .no-list li::before {
     content: '✕';
     position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 22px;
-    height: 22px;
+    left: 16px;
+    top: 16px;
+    width: 23px;
+    height: 23px;
     border-radius: 50%;
-    background: rgba(255, 107, 107, 0.15);
+    background: rgba(255, 107, 107, 0.16);
     color: var(--error);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* ── Lista de direitos / obrigações ── */
+/* ── Listas comuns ── */
 ul.clean,
 ol.clean {
-    margin: 14px 0;
-    padding-left: 22px;
+    margin: 16px 0;
+    padding-left: 24px;
 }
 
 ul.clean li,
 ol.clean li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    padding-left: 4px;
+}
+
+ul.clean li::marker,
+ol.clean li::marker {
+    color: var(--primary-light);
 }
 
 /* ── Rodapé ── */
 footer {
     border-top: 1px solid var(--border);
-    padding: 40px 20px 60px;
+    background: var(--bg-secondary);
+    padding: 46px 20px 64px;
     text-align: center;
 }
 
@@ -415,48 +513,181 @@ footer {
 .footer-company {
     color: var(--text-primary);
     font-weight: 700;
-    font-size: 18px;
+    font-size: 19px;
     margin-bottom: 6px;
+    letter-spacing: -0.2px;
 }
 
 .footer-muted {
     color: var(--text-muted);
     font-size: 14px;
-    margin-top: 18px;
+    margin-top: 20px;
+    line-height: 1.7;
 }
 
 .back-top {
     display: inline-block;
-    margin-top: 8px;
+    margin-top: 14px;
     color: var(--primary-light);
     font-size: 14px;
     font-weight: 600;
+    text-decoration: none;
+}
+
+.back-top:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 /* ── Responsivo ── */
 @media (max-width: 620px) {
+    body {
+        font-size: 16px;
+    }
+
     .hero {
-        padding: 48px 20px 60px;
+        padding: 44px 20px 70px;
+    }
+
+    .hero-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 17px;
     }
 
     .hero h1 {
-        font-size: 27px;
+        font-size: 29px;
+    }
+
+    .hero p {
+        font-size: 16px;
     }
 
     .toc ol {
         columns: 1;
     }
 
+    .meta-card,
+    .toc {
+        padding: 22px;
+    }
+
     .meta-grid {
         grid-template-columns: 1fr;
-        gap: 4px;
+        gap: 2px;
     }
 
     .meta-grid dd {
-        margin-bottom: 10px;
+        margin-bottom: 14px;
     }
 
     h2.section-title {
-        font-size: 20px;
+        font-size: 21px;
+    }
+
+    section {
+        margin-bottom: 42px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/*
+ * ── Impressão ──
+ * Política de privacidade é documento que gente imprime e arquiva — inclusive
+ * o revisor da loja. Sem isto sai fundo escuro chapado, gastando tinta e
+ * deixando o texto ilegível.
+ */
+@media print {
+    body {
+        background: #fff;
+        color: #111;
+        font-size: 11pt;
+    }
+
+    .hero {
+        background: none;
+        color: #111;
+        padding: 0 0 18px;
+        text-align: left;
+        border-bottom: 2px solid #111;
+    }
+
+    .hero::after,
+    .lang-switch,
+    .back-top,
+    .toc {
+        display: none;
+    }
+
+    .hero-icon {
+        width: 54px;
+        height: 54px;
+        margin: 0 0 10px;
+        box-shadow: none;
+    }
+
+    .hero-badge {
+        background: none;
+        color: #111;
+        padding: 0;
+    }
+
+    .hero h1,
+    h2.section-title,
+    h3,
+    strong,
+    .footer-company {
+        color: #111;
+    }
+
+    .hero p,
+    .footer-muted {
+        color: #333;
+    }
+
+    .container {
+        margin: 24px auto 0;
+        max-width: none;
+    }
+
+    .meta-card,
+    .callout,
+    .no-list li,
+    .table-wrap,
+    footer {
+        background: none;
+        border-color: #bbb;
+        box-shadow: none;
+    }
+
+    thead th,
+    tbody tr:nth-child(even) {
+        background: none;
+    }
+
+    .meta-grid dt,
+    .meta-grid dd,
+    tbody td,
+    thead th {
+        color: #111;
+    }
+
+    a {
+        color: #111;
+    }
+
+    section {
+        page-break-inside: avoid;
+        margin-bottom: 22px;
     }
 }
