@@ -92,6 +92,49 @@ a:hover {
     backdrop-filter: blur(4px);
 }
 
+/* ── Seletor de idioma ──
+ * Links de verdade, um arquivo por idioma: documento legal precisa de URL
+ * própria por versão (para citar, arquivar e mandar para a loja) e precisa
+ * abrir sem JavaScript. Trocar o texto por script deixaria as três versões
+ * compartilhando um endereço só.
+ *
+ * `z-index` porque o `.hero::after` cobre o cabeçalho inteiro.
+ */
+.lang-switch {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.lang-switch a {
+    background: rgba(15, 15, 35, 0.28);
+    color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 5px 15px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+}
+
+.lang-switch a:hover {
+    text-decoration: none;
+    background: rgba(15, 15, 35, 0.5);
+    color: #fff;
+}
+
+/* A página atual não é um link para lugar nenhum — fica marcada e sem ação. */
+.lang-switch a[aria-current='page'] {
+    background: #fff;
+    color: var(--primary-dark);
+    border-color: #fff;
+    cursor: default;
+}
+
 .hero h1 {
     margin: 0;
     color: #fff;
